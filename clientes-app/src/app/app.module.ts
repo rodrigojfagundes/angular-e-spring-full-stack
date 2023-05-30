@@ -22,6 +22,7 @@ import { ClientesService } from './clientes.service'
     TemplateModule,
     ClientesModule
   ],
+
   providers: [
   ClientesService
   ],

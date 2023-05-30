@@ -1,6 +1,5 @@
 //classe de SERVICOS de CLIENTE... Ela pega as solicitacoes
-//e envia para o SPRING do JAVA(backend)
-//injectable diz q essa classe e INJETAVEL
+//e envia para o backend
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cliente } from './clientes/cliente';
@@ -10,7 +9,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ClientesService {
-
   constructor(private http: HttpClient) {}
 
 //criando um metodo de nome SALVAR/CADASTRAR q recebe um CLIENTE do tipo CLIENTE 
@@ -20,7 +18,6 @@ salvar( cliente: Cliente ) : Observable<Cliente>{
 
     return this.http.post<Cliente>('http://localhost:8080/api/clientes', cliente);
 }
-
 
 //criano um metodo de nome GET CLIENTES, para PEDIR para o JAVA+SPRING(BACKEND)
 //os CLIENTES q estao CAD no BANCO

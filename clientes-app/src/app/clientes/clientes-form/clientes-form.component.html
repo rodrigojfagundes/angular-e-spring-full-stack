@@ -20,6 +20,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>ID:</label>
+
                     <input type="text" [ngModel]="cliente.id" name="id" class="form-control" disabled="true" />
                 </div>
             </div>
@@ -54,10 +55,15 @@
         </div>
 
         <div class="row">
-            <div class="col-md-2"></div>
+            <div class="col-md-3">
             <button type="submit" class="btn btn-success">
                 <i class="fa fa-save" ></i> Salvar
             </button>
+
+            <button type="button" class="btn btn-danger ml-1" (click)="voltarParaListagem()">
+                <i class="fa fa-arrow-alt-circle-left" ></i> Voltar
+            </button>
+        </div>
         </div>
     </form>
 </div>

@@ -11,11 +11,13 @@ import { ServicoPrestado } from '../servicoPrestado';
 export class ServicoPrestadoFormComponent implements OnInit {
 
 clientes: Cliente[] = []
+
 servico: ServicoPrestado;
 
   constructor(
   private clienteService: ClientesService
   ) { 
+
   this.servico = new ServicoPrestado();
    }
 
@@ -26,6 +28,8 @@ servico: ServicoPrestado;
   .subscribe( response => this.clientes = response );
   }
 
+//criando o metodo ONSUBMIT (metodo esse q o SERVICO-PRESTADO.FORM.HTML vai
+//CHAMAR)
 onSubmit(){
 console.log(this.servico);
 }

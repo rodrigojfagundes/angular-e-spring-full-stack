@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+//passando a URL q roda a NOSSA API no BACKEND... pois todas
+//comecam com LOCALHOST:8080...
+  apiUrlBase: 'http://localhost:8080'
 };
 
 /*

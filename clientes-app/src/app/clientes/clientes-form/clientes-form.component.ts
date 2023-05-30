@@ -21,15 +21,17 @@ id: number;
   private router: Router,
   private activatedRoute : ActivatedRoute
   ) { 
-
 this.cliente = new Cliente();
   }
 
   ngOnInit(): void {
+
   let params : Observable<Params> = this.activatedRoute.params
   params.subscribe( urlParams => {
+
     this.id = urlParams['id'];
     if(this.id ){
+
     this.service
     .getClienteById(this.id)
     .subscribe( response => this.cliente = response ,
@@ -39,9 +41,8 @@ this.cliente = new Cliente();
   })
 }
 
-//criando o METODO VOLTARPARALISTAGEM, metodo esse q vai ser chamado pelo
-//botao VOLTAR q vai ficar na tela CLIENTES...
 voltarParaListagem(){
+
 this.router.navigate(['/clientes-lista'])
 
 }
@@ -55,7 +56,7 @@ this.service
 .subscribe(response => {
     this.success = true;
     this.errors = null;
-	
+
 }, errorResponse => {
     this.errors = ['Erro ao atualizar o cliente.']
 })

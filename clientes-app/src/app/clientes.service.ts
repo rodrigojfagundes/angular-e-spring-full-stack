@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Cliente } from './clientes/cliente';
 
 @Injectable({
@@ -6,12 +7,16 @@ import { Cliente } from './clientes/cliente';
 })
 export class ClientesService {
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+  
+   }
+
 
   getCliente() : Cliente{
     let cliente : Cliente = new Cliente();
     cliente.nome = 'Fulano de tal';
     cliente.cpf = '88888888';
+	
     return cliente;
   }
 

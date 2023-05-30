@@ -16,7 +16,7 @@ import io.github.rodrigojfagundes.rest.exceptions.ApiErrors;
 
 @RestControllerAdvice
 public class ApplicationControllerAdvice {
-
+	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public ApiErrors handleValidationErros(MethodArgumentNotValidException ex) {
@@ -25,7 +25,7 @@ public class ApplicationControllerAdvice {
 		.stream()
 		.map(objectError -> objectError.getDefaultMessage())
 		.collect(Collectors.toList());
-	
+
 		return new ApiErrors(messages);
 	}
 	

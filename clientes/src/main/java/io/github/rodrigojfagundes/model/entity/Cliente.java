@@ -23,9 +23,6 @@ import lombok.NoArgsConstructor;
 //criando a classe/entidade CLIENTE, nela vai ficar armazenada as informações
 //sobre os clientes... Tipo NOME, IDADE, CPF, etc...
 //
-//usando a ANNOTATION @ENTITY para mapear essa classe com o BANCO...
-//e assim fazer uma TABELA no banco com o nome CLIENTE, e os ATRIBUTOS serem as
-//COLUNAS
 @Entity
 @Data
 @NoArgsConstructor

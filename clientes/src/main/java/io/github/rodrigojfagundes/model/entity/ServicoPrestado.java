@@ -15,19 +15,23 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
-//Criando a ENTIDADE/CLASSE SERVICOPRESTADO... Nela vai ficar armazenado as informacoes
-//sobre cada servico prestado
+//Criando a ENTIDADE/CLASSE SERVICO... Nela vai ficar armazenado as informacoes
+//sobre cada servico
+//
 @Entity
 @Data
 public class ServicoPrestado {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(nullable = false, length = 150)
 	private String descricao;
 	
+	
+	//ANNOTATION @MANYTOONE(muitos para um) ou seja sera uma associacao de MUITOS
+	//SERVICOSPRESTADOS para UM CLIENTE...
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;

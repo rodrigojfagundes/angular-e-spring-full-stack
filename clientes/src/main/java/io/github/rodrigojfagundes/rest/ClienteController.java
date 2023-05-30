@@ -52,8 +52,9 @@ public class ClienteController {
 	}
 	
 	
-	
 	//criando um metodo para SALVAR um CLIENTE no BANCO
+	//esse metodo vai receber do FRONT um CLIENTE em JSON com os seus DADOS
+	//NOME, CPF, etc... e vai CAD no BANCO
 	//
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
@@ -67,7 +68,6 @@ public class ClienteController {
 	//
 	@GetMapping("{id}")
 	public Cliente acharPorId( @PathVariable Integer id) {
-
 		return repository
 				.findById(id)
 				.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
@@ -87,18 +87,17 @@ public class ClienteController {
 		.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
 	}
 	
-	
 	//criando metodo para ATUALIZAR um CLIENTE
 	//
 	@PutMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void atualizar( @PathVariable Integer id, @RequestBody @Valid Cliente clienteAtualizado) { 
+	public void atualizar( @PathVariable Integer id, @RequestBody @Valid Cliente clienteAtualizado) {
 	repository
 		.findById(id)
 		.map( cliente -> {
 			cliente.setNome(clienteAtualizado.getNome());
 			cliente.setCpf(clienteAtualizado.getCpf());			
-			
+	
 			return repository.save(cliente);
 		})
 		.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );

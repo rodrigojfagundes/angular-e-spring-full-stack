@@ -16,19 +16,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//criando a classe/entidade CLIENTE, nela vai ficar armazenada as informações
-//sobre os clientes... Tipo NOME, IDADE, CPF, etc...
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Cliente {
-
+	
 	@Id
+
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
+	
 	@Column(nullable = false, length = 150)
 	private String nome;
 

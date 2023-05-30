@@ -33,14 +33,14 @@ atualizar( cliente: Cliente ) : Observable<any>{
 
 //criano um metodo de nome GET CLIENTES, para PEDIR para o JAVA+SPRING(BACKEND)
 //os CLIENTES q estao CAD no BANCO
-//
 getClientes() : Observable<Cliente[]>{
     return this.http.get<Cliente[]>('http://localhost:8080/api/clientes');
 }
 
-//metodo para OBTER um CLIENTE PELO O ID...
-//
+//metodo para OBTER um CLIENTE PELO O ID
 getClienteById(id: number) : Observable<Cliente>{
     return this.http.get<any>(`http://localhost:8080/api/clientes/${id}`);
 }
+
+
 }

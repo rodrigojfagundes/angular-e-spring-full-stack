@@ -11,6 +11,7 @@ import { ClientesService } from '../../clientes.service';
 export class ClientesListaComponent implements OnInit {
 
 clientes: Cliente[] = [];
+clienteSelecionado: Cliente;
 
   constructor(
   private service: ClientesService, 
@@ -21,9 +22,13 @@ clientes: Cliente[] = [];
         .getClientes()
         .subscribe( resposta => this.clientes = resposta );
   }
+
     novoCadastro(){
 
     this.router.navigate(['/clientes-form'])
     }
 
+preparaDelecao(cliente: Cliente){
+this.clienteSelecionado = cliente;
+}
 }

@@ -26,10 +26,8 @@ this.cliente = new Cliente();
   }
 
   ngOnInit(): void {
-
   let params : Observable<Params> = this.activatedRoute.params
   params.subscribe( urlParams => {
-
     this.id = urlParams['id'];
     if(this.id ){
 
@@ -43,11 +41,9 @@ this.cliente = new Cliente();
 }
 
 voltarParaListagem(){
-
 this.router.navigate(['/clientes-lista'])
 
 }
-
   onSubmit(){
 
 if(this.id){
@@ -62,7 +58,6 @@ this.service
     this.errors = ['Erro ao atualizar o cliente.']
 })
 }else{
-
     this.service.
     salvar(this.cliente)
     .subscribe( response => {

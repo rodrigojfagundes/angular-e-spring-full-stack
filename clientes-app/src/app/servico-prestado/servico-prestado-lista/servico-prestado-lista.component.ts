@@ -14,6 +14,8 @@ mes: number;
 meses: number[];
 lista: ServicoPrestadoBusca[];
 
+message: string;
+
   constructor(
 
   private service: ServicoPrestadoService
@@ -28,8 +30,13 @@ consultar(){
 
     this.service.buscar(this.nome, this.mes)
 
-        .subscribe(response => this.lista = response);
-
-
+        .subscribe(response => {
+        this.lista = response;
+        if(this.lista.length <= 0) {
+        this.message = "Nenhum Registro encontrado.";
+        } else {
+            this.message = null;
+        }
+        });
 }
 }

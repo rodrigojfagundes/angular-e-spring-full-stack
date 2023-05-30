@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../clientes/cliente';
 import { ClientesService } from '../../clientes.service';
 import { ServicoPrestado } from '../servicoPrestado';
-//importando o SERVICO-PRESTADO-SERVICE, pois ele PEGA O OBJ/VAR SERVICOPRESTADO
-//e ENVIA para a API DO BACKEND(JAVA+SPRING)
+
 import { ServicoPrestadoService } from '../../servico-prestado.service';
 
 @Component({
@@ -12,7 +11,6 @@ import { ServicoPrestadoService } from '../../servico-prestado.service';
   styleUrls: ['./servico-prestado-form.component.css']
 })
 export class ServicoPrestadoFormComponent implements OnInit {
-
 
 clientes: Cliente[] = []
 servico: ServicoPrestado;
@@ -23,6 +21,7 @@ errors: String[];
   private clienteService: ClientesService,
   private service: ServicoPrestadoService
   ) { 
+
   this.servico = new ServicoPrestado();
    }
 
@@ -34,14 +33,11 @@ errors: String[];
   }
 
 onSubmit(){
-
 this.service
 .salvar(this.servico)
    .subscribe( response => {
-
     this.success = true;
     this.errors = null;
-
     this.servico = new ServicoPrestado();
     } , errorResponse => {
     this.success = false;

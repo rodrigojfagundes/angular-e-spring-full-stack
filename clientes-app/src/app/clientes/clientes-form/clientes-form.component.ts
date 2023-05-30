@@ -21,18 +21,15 @@ id: number;
   private router: Router,
   private activatedRoute : ActivatedRoute
   ) { 
-
 this.cliente = new Cliente();
   }
 
   ngOnInit(): void {
-
+ 
   let params : Observable<Params> = this.activatedRoute.params
   params.subscribe( urlParams => {
-
     this.id = urlParams['id'];
     if(this.id ){
-
     this.service
     .getClienteById(this.id)
     .subscribe( response => this.cliente = response ,
@@ -43,10 +40,10 @@ this.cliente = new Cliente();
 }
 
 voltarParaListagem(){
-
 this.router.navigate(['/clientes-lista'])
 
 }
+
   onSubmit(){
 
 if(this.id){

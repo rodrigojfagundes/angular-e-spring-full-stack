@@ -39,9 +39,6 @@ preparaDelecao(cliente: Cliente){
 this.clienteSelecionado = cliente;
 }
 
-
-//criando um METODO para DELETARCLIENTE... 
-//
 deletarCliente(){
 this.service
 .deletar(this.clienteSelecionado)

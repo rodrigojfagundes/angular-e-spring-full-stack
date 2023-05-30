@@ -13,7 +13,7 @@ import { ClientesListaComponent } from './clientes-lista/clientes-lista.componen
     CommonModule,
     ClientesRoutingModule,
     FormsModule
-  ],
+  ], 
   exports: [
   ClientesFormComponent,
   ClientesListaComponent

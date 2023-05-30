@@ -9,6 +9,7 @@ import { ServicoPrestadoService } from '../../servico-prestado.service'
 })
 export class ServicoPrestadoListaComponent implements OnInit {
 
+
 nome: string;
 mes: number;
 meses: number[];

@@ -43,7 +43,7 @@ getClientes() : Observable<Cliente[]>{
 }
 
 //metodo para OBTER um CLIENTE PELO O ID... 
-//esse metodo recebe um ID do tipo NUMBER...
+//
 getClienteById(id: number) : Observable<Cliente>{
 
     return this.http.get<any>(`${this.apiURL}/${id}`);

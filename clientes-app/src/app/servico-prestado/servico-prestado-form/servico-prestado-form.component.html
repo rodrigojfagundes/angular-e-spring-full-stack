@@ -2,9 +2,7 @@
 <ol class="breadcrumb mb-4">
     <li class="breadcrum-bitem active">Novo</li>
 </ol>
-<!--criando campo para SELECIONAR o CLIENTE q pediu o SERVICOPRESTADO
-e no                 [(ngModel)]="servico.idCliente"> NOS SELECIONAMOS
-o ID do CLIENTE q PEDIU O SERVICOPRESTADO-->
+
 <div class="container">
     <form #form="ngForm" (submit)="onSubmit()">
 
@@ -27,7 +25,7 @@ o ID do CLIENTE q PEDIU O SERVICOPRESTADO-->
                 [ngModelOptions]="{standalone: true}"
                     [(ngModel)]="servico.idCliente">
                     <option value=""> Selecione ...</option>
- 
+
                     <option *ngFor="let cliente of clientes" 
                         [ngValue]="cliente.id">
                     {{ cliente.nome }}
@@ -47,7 +45,6 @@ o ID do CLIENTE q PEDIU O SERVICOPRESTADO-->
                 </div>
             </div>       
 
-
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -66,12 +63,17 @@ o ID do CLIENTE q PEDIU O SERVICOPRESTADO-->
                 </div>
             </div>
 
-
 <div class="row">
     <div class="col-md-3">
         <button type="submit" class="btn btn-sucess">
         <i class="fa fa-save"></i>
-        Salvar</button>
+        Salvar
+    </button>
+
+            <button type="button" routerLink="/servico-prestado-listagem" 
+                class="btn btn-danger ml-1">
+                <i class="fa fa-arrow-alt-circle-left" ></i> Voltar
+            </button>
         </div>
 </div>
     </form>

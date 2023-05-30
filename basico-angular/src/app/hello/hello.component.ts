@@ -1,7 +1,4 @@
-//criando o primeiro componente
-
 import { Component } from '@angular/core'
-
 
 @Component({
     selector: 'hello',

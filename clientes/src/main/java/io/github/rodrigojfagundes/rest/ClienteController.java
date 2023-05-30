@@ -20,6 +20,7 @@ import io.github.rodrigojfagundes.repository.ClienteRepository;
 @RequestMapping("/api/clientes")
 public class ClienteController {
 	
+	
 	private final ClienteRepository repository;
 	
 	@Autowired
@@ -52,6 +53,8 @@ public class ClienteController {
 	}
 	
 	//metodo para DELETAR um CLIENTE
+	//para isso nos vamos usar a ANNOTATION @DELETEMAPPING, q ira receber o ID
+	//do CLIENTE q queremos deletar
 	@DeleteMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deletar( @PathVariable Integer id) { 
@@ -66,6 +69,7 @@ public class ClienteController {
 	
 	
 	//criando metodo para ATUALIZAR um CLIENTE
+	//
 	@PutMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void atualizar( @PathVariable Integer id, @RequestBody Cliente clienteAtualizado) { 
@@ -74,7 +78,6 @@ public class ClienteController {
 		.map( cliente -> {
 			cliente.setNome(clienteAtualizado.getNome());
 			cliente.setCpf(clienteAtualizado.getCpf());			
-
 			return repository.save(cliente);
 		})
 		.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND) );

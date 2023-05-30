@@ -34,14 +34,14 @@ import io.github.rodrigojfagundes.repository.ClienteRepository;
 @RequestMapping("/api/clientes")
 @CrossOrigin("http://localhost:4200")
 public class ClienteController {
-	
-	private final ClienteRepository repository;
 
+	private final ClienteRepository repository;
+	
 	@Autowired
 	public ClienteController(ClienteRepository repository) {
 		this.repository = repository;
 	}
-
+	
 	@GetMapping
 	public List<Cliente> obterTodos(){
 		return repository.findAll();
@@ -53,8 +53,6 @@ public class ClienteController {
 	//esse metodo vai receber do FRONT um CLIENTE em JSON com os seus DADOS
 	//NOME, CPF, etc... e vai CAD no BANCO
 	//
-	// Colocando a ANNOTATION @POSTMAPPING pq no no PADRAO REST
-	// quando nos vamos INSERIR um NOVO RECURSO nos usemos o metodo POST
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente salvar(@RequestBody @Valid Cliente cliente) {
@@ -67,28 +65,27 @@ public class ClienteController {
 	//
 	@GetMapping("{id}")
 	public Cliente acharPorId( @PathVariable Integer id) {
-
 		return repository
 				.findById(id)
 				.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
 	}
 	
 	//metodo para DELETAR um CLIENTE
-	//
 	@DeleteMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void deletar(@PathVariable Integer id) {
- 
+	public void deletar(@PathVariable Integer id) { 
 	repository
 		.findById(id)
 		.map( cliente -> {
 			repository.delete(cliente);
 			return Void.TYPE;
 		})
-		//se caso nao encontrr o cliente, dai chama a excecao a baixo
 		.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
 	}
 	
+	
+	//criando metodo para ATUALIZAR um CLIENTE
+	//
 	@PutMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void atualizar( @PathVariable Integer id, @RequestBody @Valid Cliente clienteAtualizado) { 
@@ -96,10 +93,11 @@ public class ClienteController {
 		.findById(id)
 		.map( cliente -> {
 			cliente.setNome(clienteAtualizado.getNome());
-			cliente.setCpf(clienteAtualizado.getCpf());			
-
+			cliente.setCpf(clienteAtualizado.getCpf());
+			
 			return repository.save(cliente);
 		})
+
 		.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
 	}
 }

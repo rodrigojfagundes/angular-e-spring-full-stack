@@ -14,18 +14,18 @@ export class ClientesService {
 
 //criando um metodo de nome SALVAR/CADASTRAR q recebe um CLIENTE do tipo CLIENTE 
 //q vamos passar para o JAVA no BACKEND para SALVAR
+
 salvar( cliente: Cliente ) : Observable<Cliente>{
 
     return this.http.post<Cliente>('http://localhost:8080/api/clientes', cliente);
 }
-
 
     //METODO getcliente q retorna algo do TIPO CLIENTE(aquela classe q criamos)
   getCliente() : Cliente{
     let cliente : Cliente = new Cliente();
     cliente.nome = 'Fulano de tal';
     cliente.cpf = '88888888';
-	
+
     return cliente;
   }
 

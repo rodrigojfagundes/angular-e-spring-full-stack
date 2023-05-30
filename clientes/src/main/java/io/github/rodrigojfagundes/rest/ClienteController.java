@@ -31,7 +31,6 @@ import io.github.rodrigojfagundes.repository.ClienteRepository;
 @RequestMapping("/api/clientes")
 public class ClienteController {
 	
-	
 	private final ClienteRepository repository;
 	
 	@Autowired
@@ -50,12 +49,11 @@ public class ClienteController {
 	
 	
 	//Metodo para pegar as informacoes PELO O ID do CLIENTE
-	//
 	@GetMapping("{id}")
 	public Cliente acharPorId( @PathVariable Integer id) {
 		return repository
 				.findById(id)
-				.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND) );
+				.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
 	}
 	
 	//metodo para DELETAR um CLIENTE
@@ -68,11 +66,12 @@ public class ClienteController {
 			repository.delete(cliente);
 			return Void.TYPE;
 		})
-		.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND) );
+		.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
 	}
 	
 	
 	//criando metodo para ATUALIZAR um CLIENTE
+	//
 	@PutMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void atualizar( @PathVariable Integer id, @RequestBody @Valid Cliente clienteAtualizado) { 
@@ -81,9 +80,9 @@ public class ClienteController {
 		.map( cliente -> {
 			cliente.setNome(clienteAtualizado.getNome());
 			cliente.setCpf(clienteAtualizado.getCpf());			
-			
+
 			return repository.save(cliente);
 		})
-		.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND) );
+		.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
 	}
 }

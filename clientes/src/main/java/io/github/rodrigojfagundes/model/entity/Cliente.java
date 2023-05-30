@@ -28,8 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class Cliente {
-	
-	//declarando os atributos/variaveis... q serao utilizados como COLUNAS no BANCO
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;

@@ -8,10 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
-//classe para personalizar as mensagens de erro,para dar erro em portugues, etc...
-//e dar um erro mais facil de entender
-//
-//para transformar uma CLASSE em CONFIGURACAO vamos usar a ANNOTATION @CONFIGURATION
 @Configuration
 public class InternacionalizacaoConfig {
 	
@@ -22,7 +18,7 @@ public class InternacionalizacaoConfig {
 		messageSource.setDefaultEncoding("ISO-8859-1");
 		messageSource.setDefaultLocale(Locale.getDefault());
 		return messageSource;
-	};
+	}
 	
 	@Bean
 	public LocalValidatorFactoryBean validatorFactoryBean() {
@@ -30,6 +26,4 @@ public class InternacionalizacaoConfig {
 		bean.setValidationMessageSource(messageSource());
 		return bean;
 	}
-	
-	
 }

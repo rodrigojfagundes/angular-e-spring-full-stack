@@ -22,14 +22,14 @@ import lombok.NoArgsConstructor;
 
 //criando a classe/entidade CLIENTE, nela vai ficar armazenada as informações
 //sobre os clientes... Tipo NOME, IDADE, CPF, etc...
-//
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Cliente {
-
+	
+	//declarando os atributos/variaveis... q serao utilizados como COLUNAS no BANCO
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -38,7 +38,7 @@ public class Cliente {
 	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String nome;
 
-	@Column(nullable = false, length =11)
+	@Column(nullable = false, length = 11)
 	@NotNull(message = "{campo.cpf.obrigatorio}")
 	@CPF(message = "{campo.cpf.invalido}")
 	private String cpf;

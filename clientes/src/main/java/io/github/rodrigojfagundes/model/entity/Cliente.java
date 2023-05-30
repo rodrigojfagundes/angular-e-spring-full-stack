@@ -9,11 +9,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//criando a classe/entidade CLIENTE, nela vai ficar armazenada as informações
+//sobre os clientes... Tipo NOME, IDADE, CPF, etc...
 @Entity
 @Data
 @NoArgsConstructor
@@ -26,14 +30,14 @@ public class Cliente {
 	private Integer id;
 
 	@Column(nullable = false, length = 150)
-	private String name;
+	private String nome;
 
 	@Column(nullable = false, length =11)
 	private String cpf;
 	
 	@Column(name = "data_cadastro")
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataCadastro;
-	
 	
 	@PrePersist
 	public void prePersist() {

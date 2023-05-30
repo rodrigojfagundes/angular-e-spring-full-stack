@@ -11,7 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.Data;
- 
+
+//Criando a ENTIDADE/CLASSE SERVICO... Nela vai ficar armazenado as informacoes
+//sobre cada servico
+// 
 @Entity
 @Data
 public class Servico {

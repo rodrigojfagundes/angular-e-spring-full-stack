@@ -10,15 +10,17 @@ import javax.persistence.Id;
 
 import lombok.Data;
 
+//criando a classe/entidade CLIENTE, nela vai ficar armazenada as informações
+//sobre os clientes... Tipo NOME, IDADE, CPF, etc...
+//
 @Entity
 @Data
 public class Cliente {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	//ANNOTATION COLLUMN para nao permitir dados NULL, 	e no max 150 caracteres
+
 	@Column(nullable = false, length = 150)
 	private String name;
 
@@ -26,10 +28,5 @@ public class Cliente {
 	private String cpf;
 	
 	@Column(name = "data_cadastro")
-	private LocalDate dataCadastro;
-	
-	
-	
-
-	
+	private LocalDate dataCadastro;	
 }

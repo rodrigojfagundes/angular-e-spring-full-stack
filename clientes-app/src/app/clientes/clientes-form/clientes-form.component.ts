@@ -10,18 +10,17 @@ import { Cliente } from '../cliente';
 export class ClientesFormComponent implements OnInit {
 
 cliente: Cliente;
-nome: String = 'Fulano';
 
   constructor() { 
     this.cliente = new Cliente();
-    this.cliente.nome = 'Dougllas';
+
   }
 
   ngOnInit(): void {
   }
 
   clicar(){
-    console.log('Cliquei!');
+    console.log(this.cliente);
   }
 
 }

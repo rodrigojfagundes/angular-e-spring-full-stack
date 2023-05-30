@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-//importando MODULO de FORMULARIOS do ANGULAR
 import { FormsModule } from '@angular/forms'
 
 import { ClientesRoutingModule } from './clientes-routing.module';

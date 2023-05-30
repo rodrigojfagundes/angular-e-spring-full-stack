@@ -8,16 +8,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
-//classe para personalizar as mensagens de erro,para dar erro em portugues, etc...
-//e dar um erro mais facil de entender
-//
 @Configuration
 public class InternacionalizacaoConfig {
 	
 	@Bean
 	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-		messageSource.setBasename("messages");
+		messageSource.setBasename("classpath:messages");
 		messageSource.setDefaultEncoding("ISO-8859-1");
 		messageSource.setDefaultLocale(Locale.getDefault());
 		return messageSource;

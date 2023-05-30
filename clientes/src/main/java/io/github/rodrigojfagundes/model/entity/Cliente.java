@@ -20,8 +20,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//criando a classe/entidade CLIENTE, nela vai ficar armazenada as informações
-//sobre os clientes... Tipo NOME, IDADE, CPF, etc...
 @Entity
 @Data
 @NoArgsConstructor
@@ -32,20 +30,21 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(nullable = false, length = 150)
-	@NotEmpty
+
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String nome;
 
 	@Column(nullable = false, length =11)
-	@NotNull
-	@CPF
+	@NotNull(message = "{campo.cpf.obrigatorio}")
+	@CPF(message = "{campo.cpf.invalido}")
 	private String cpf;
 	
 	@Column(name = "data_cadastro", updatable = false)
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataCadastro;
-
+	
 	@PrePersist
 	public void prePersist() {
 		setDataCadastro(LocalDate.now());

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Router, ActivatedRoute } from '@angular/router'
 import { Cliente } from '../cliente';
 import { ClientesService } from'../../clientes.service'
@@ -28,7 +29,6 @@ this.cliente = new Cliente();
   let params = this.activatedRoute.params
   if(params && params.value && params.value.id){
     this.id = params.value.id;
-
     this.service
     .getClienteById(this.id)
     .subscribe( response => this.cliente = response ,
@@ -38,17 +38,16 @@ this.cliente = new Cliente();
   }
 
 voltarParaListagem(){
-
 this.router.navigate(['/clientes-lista'])
-}
 
+}
   onSubmit(){
+
     this.service.
     salvar(this.cliente)
     .subscribe( response => {
     this.success = true;
     this.errors = null;
-
     this.cliente = response;
     } , errorResponse => {
     this.success = false;

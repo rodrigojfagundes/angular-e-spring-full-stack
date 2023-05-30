@@ -11,7 +11,6 @@ import { ClientesService } from '../../clientes.service';
 export class ClientesListaComponent implements OnInit {
 
 clientes: Cliente[] = [];
-
   constructor(
   private service: ClientesService, 
   private router: Router) {}
@@ -23,7 +22,6 @@ clientes: Cliente[] = [];
   }
 
     novoCadastro(){
-
     this.router.navigate(['/clientes-form'])
     }
 

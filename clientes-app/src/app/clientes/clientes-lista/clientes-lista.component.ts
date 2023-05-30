@@ -30,7 +30,6 @@ mensagemErro: string;
     this.router.navigate(['/clientes-form'])
     }
 
-
 preparaDelecao(cliente: Cliente){
 
 this.clienteSelecionado = cliente;

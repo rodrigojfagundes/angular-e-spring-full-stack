@@ -18,7 +18,6 @@
 
 <div class="row">
     <div class="col-md-2">
-
     <button class="btn btn-warning" (click)="novoCadastro()" >
         <i class="fa fa-plus"></i> Novo
         </button>
@@ -43,7 +42,6 @@
             <td>{{ cliente.nome }}</td>
             <td>{{ cliente.cpf }}</td>
             <td>{{ cliente.dataCadastro }}</td>
-
             <td>
 
                 <button class="btn btn-primary" 
@@ -72,7 +70,7 @@
             <div class="modal-body" *ngIf="clienteSelecionado">
                 Confirma a delecao do(a) Cliente {{ clienteSelecionado.nome }}?
             </div>
-            
+
             <div class="modal-footer">
                 <button class="btn btn-success" (click)="deletarCliente()" 
                     data-dismiss="modal">Confirmar</button>

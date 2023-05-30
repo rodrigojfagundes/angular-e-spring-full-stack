@@ -1,9 +1,11 @@
 //classe de SERVICOS de CLIENTE... Ela pega as solicitacoes
 //e envia para o JAVA(backend)
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cliente } from './clientes/cliente';
 import { Observable } from 'rxjs';
+
 import { environment } from '../environments/environment'
 
 @Injectable({
@@ -19,7 +21,7 @@ apiURL: string = environment.apiUrlBase + '/api/clientes';
 //q vamos passar para o JAVA no BACKEND para SALVAR
 //
 salvar( cliente: Cliente ) : Observable<Cliente>{
-  
+
     return this.http.post<Cliente>(`${this.apiURL}`, cliente);
 }
 

@@ -21,12 +21,10 @@ id: number;
   private activatedRoute : ActivatedRoute
   ) { 
 
-
 this.cliente = new Cliente();
   }
 
   ngOnInit(): void {
-
   let params = this.activatedRoute.params
   if(params && params.value && params.value.id){
     this.id = params.value.id;
@@ -42,7 +40,6 @@ this.cliente = new Cliente();
 voltarParaListagem(){
 
 this.router.navigate(['/clientes-lista'])
-
 }
 
   onSubmit(){

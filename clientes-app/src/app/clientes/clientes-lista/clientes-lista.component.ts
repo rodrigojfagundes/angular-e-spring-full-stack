@@ -23,7 +23,8 @@ clientes: Cliente[] = [];
   }
 
     novoCadastro(){
-	
+
     this.router.navigate(['/clientes-form'])
     }
+
 }

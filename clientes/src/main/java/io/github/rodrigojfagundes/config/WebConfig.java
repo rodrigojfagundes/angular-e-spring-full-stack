@@ -16,11 +16,7 @@ public class WebConfig {
 
 	@Bean
 	public FilterRegistrationBean<CorsFilter> corsFilterFilterRegistrationBean() {
-		//criando uma VAR/OBJ de NOME CORSCONFIGURATION do TIPO CONFIGURATION
-		//
-		//criando uma LISTA de nome ALL q recebe um ASTERISTICO * ou seja
-		//qd for chamado nos METODOS A BAIXO o ALL no caso * significa q ta 
-		//liberado para todos... 
+ 
 		List<String> all = Arrays.asList("*");
 		
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
@@ -36,13 +32,14 @@ public class WebConfig {
 		corsConfiguration.setAllowedHeaders(all);
 		corsConfiguration.setAllowedMethods(all);
 		corsConfiguration.setAllowCredentials(true);
-	
+
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", corsConfiguration);
-		
+
 		CorsFilter corsFilter = new CorsFilter(source);
 
 		FilterRegistrationBean<CorsFilter> filter = new FilterRegistrationBean<>(corsFilter);
+
 		filter.setOrder(Ordered.HIGHEST_PRECEDENCE);
 		
 		

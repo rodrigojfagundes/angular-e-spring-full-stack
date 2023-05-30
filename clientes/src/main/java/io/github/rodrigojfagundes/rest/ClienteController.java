@@ -64,10 +64,9 @@ public class ClienteController {
 	//como no RESTFUL para nos pegarmos uma informacao temos q usar o metodo GET
 	//entao nos vamos usar a ANNOTATION @GETMAPPING, para (PEGAR/TRAZER)
 	//o cliente conforme o ID
-	//a ANNOTATION @PATHVARIABLE serve para dizer q o ID q recebemos no GETMAPPING e
-	//o ID q sera passado para o ACHARPORID
 	@GetMapping("{id}")
 	public Cliente acharPorId( @PathVariable Integer id) {
+
 		return repository
 				.findById(id)
 				.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
@@ -78,8 +77,7 @@ public class ClienteController {
 	//do CLIENTE q queremos deletar
 	@DeleteMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void deletar(@PathVariable Integer id) {
- 
+	public void deletar(@PathVariable Integer id) { 
 	repository
 		.findById(id)
 		.map( cliente -> {
@@ -92,9 +90,6 @@ public class ClienteController {
 	
 	//criando metodo para ATUALIZAR um CLIENTE
 	//
-	//a ANNOTATION @PATHVARIABLE serve para dizer q o ID vai ser um valor q vai vim
-	//na URL da requisição (ou seja a ID do CLIENTE q queremos ATUALIZAR)
-	//a ANNOTATION @REQUESTBODY vai receber um CLIENTE com os VALORES ATUALIZADOS
 	@PutMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void atualizar( @PathVariable Integer id, @RequestBody @Valid Cliente clienteAtualizado) { 

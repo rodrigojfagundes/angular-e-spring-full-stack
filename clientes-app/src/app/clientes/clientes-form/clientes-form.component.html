@@ -3,12 +3,13 @@
     <li class="breadcrumb-item active">Cadastros</li>
 </ol>
 <div class="container">
+    {{ cliente.nome }}
     <form>
         <div class = "row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>ID</label>
-                    <input type="text" class="form-control" disabled="true"/>
+                    <label>ID:</label>
+                    <input type="text" class="form-control" disabled="true" />
                 </div>
             </div>
 
@@ -18,13 +19,13 @@
                     <input type="text" class="form-control" disabled="true"/>
                 </div>
             </div>
-
         </div>
+
         <div class = "row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Nome: *</label>
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" [(ngModel)]="nome"/>
                 </div>
             </div>
             <div class="col-md-6">
@@ -37,7 +38,7 @@
 
         <div class="row">
             <div class="col-md-2"></div>
-            <button type="submit" class="btn btn-success">
+            <button type="submit" class="btn btn-success" (click)="clicar()">
                 <i class="fa fa-save" ></i> Salvar
             </button>
         </div>

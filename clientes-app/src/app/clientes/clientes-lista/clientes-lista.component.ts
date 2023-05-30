@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
 import { Cliente } from '../cliente';
 import { ClientesService } from '../../clientes.service';
@@ -29,6 +30,7 @@ mensagemErro: string;
 
     this.router.navigate(['/clientes-form'])
     }
+
 
 preparaDelecao(cliente: Cliente){
 

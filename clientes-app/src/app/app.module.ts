@@ -23,7 +23,6 @@ import { ServicoPrestadoService } from './servico-prestado.service'
     HttpClientModule,
     AppRoutingModule,
     TemplateModule,
-
     ClientesModule,
     ServicoPrestadoModule
   ],

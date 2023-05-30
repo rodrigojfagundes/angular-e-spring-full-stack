@@ -39,31 +39,45 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Descricao: </label>
-
+                        <!--os valores q forem digitado na linha a baixo
+                        vao ser SALVOS na VAR/ATRIBUTO DESCRICAO do OBJ/VAR
+                        SERVICOS q e do tipo SERVICOSPRESTADOS.TS-->
                         <input class="form-control" [(ngModel)]="servico.descricao" type="text" name="descricao" id="inputDescricao">
                     </div>
                 </div>
             </div>       
 
+
+
+        <!--basicamente a baixo estamos criando o campo de DATA
+        do servico... e o que for digitado vai para o SERVICOPRESTADO.TS-->
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Data: </label>
-
+                        <!--os valores q forem digitado na linha a baixo
+                        vao ser SALVOS na VAR/ATRIBUTO DATA do OBJ/VAR
+                        SERVICOS q e do tipo SERVICOSPRESTADOS.TS-->
                         <input class="form-control" [(ngModel)]="servico.data" type="text" name="data" id="inputData">
                     </div>
                 </div>
 
+       <!--basicamente a baixo estamos criando o campo de PRECO
+        do servico... e o que for digitado vai para o SERVICOPRESTADO.TS-->
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Preco: </label>
-
+                        <!--os valores q forem digitado na linha a baixo
+                        vao ser SALVOS na VAR/ATRIBUTO PRECO do OBJ/VAR
+                        SERVICOS q e do tipo SERVICOSPRESTADOS.TS-->
                         <input class="form-control" [(ngModel)]="servico.preco" type="text" name="preco" id="inputPreco">
                     </div>
                 </div>
             </div>
 
 
+
+<!--criando o botao para envio/salvar-->
 <div class="row">
     <div class="col-md-3">
         <button type="submit" class="btn btn-sucess">

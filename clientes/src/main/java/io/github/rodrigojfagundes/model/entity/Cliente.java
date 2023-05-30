@@ -22,6 +22,7 @@ import lombok.NoArgsConstructor;
 
 //criando a classe/entidade CLIENTE, nela vai ficar armazenada as informações
 //sobre os clientes... Tipo NOME, IDADE, CPF, etc...
+//
 @Entity
 @Data
 @NoArgsConstructor
@@ -45,6 +46,7 @@ public class Cliente {
 	@Column(name = "data_cadastro", updatable = false)
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataCadastro;
+	
 	
 	@PrePersist
 	public void prePersist() {

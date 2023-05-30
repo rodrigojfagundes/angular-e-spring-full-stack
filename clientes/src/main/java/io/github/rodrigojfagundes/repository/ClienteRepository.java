@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import io.github.rodrigojfagundes.model.entity.Cliente;
 
 //criando a interface CLIENTE REPOSITORY, q irá fazer receber
-//as solicitações da CLASSE CLIENTECONTROLLER... e em sequencia
+//as solicitações da CLASSE CLIENTESERVICE... e em sequencia
 //a CLIENTEREPOSITORY irá fazer a conexao ao BANCO para
 //realizar a solicitacao
 	//e essa classe HERDA de JPAREPOSITORY para se conectar

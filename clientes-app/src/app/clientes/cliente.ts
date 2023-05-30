@@ -1,5 +1,6 @@
 //Criandoo arquivo CLIENTE.TS q tera os mesmos ATRIBUTOS(VAR) 
-//q o CLIENTE.JAVA(q ta no BACKEND)
+//q o CLIENTE.JAVA(q ta no back-end)
+
 export class Cliente {
 
 id:number;

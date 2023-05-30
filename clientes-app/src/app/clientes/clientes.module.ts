@@ -12,7 +12,7 @@ import { ClientesFormComponent } from './clientes-form/clientes-form.component';
     CommonModule,
     ClientesRoutingModule,
     FormsModule
-  ], 
+  ],
   exports: [
   ClientesFormComponent
   ]

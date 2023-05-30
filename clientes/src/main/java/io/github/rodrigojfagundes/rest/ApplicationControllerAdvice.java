@@ -25,7 +25,7 @@ public class ApplicationControllerAdvice {
 		.stream()
 		.map(objectError -> objectError.getDefaultMessage())
 		.collect(Collectors.toList());
-	
+
 		return new ApiErrors(messages);
 	}
 	
@@ -33,7 +33,7 @@ public class ApplicationControllerAdvice {
 	public ResponseEntity handleResponseStatusExceptions(ResponseStatusException ex) {
 		String menssagemErro = ex.getMessage();
 		HttpStatus codigoStatus = ex.getStatus();
-		
+
 		ApiErrors apiErrors = new ApiErrors(menssagemErro);
 		
 		return new ResponseEntity(apiErrors, codigoStatus);

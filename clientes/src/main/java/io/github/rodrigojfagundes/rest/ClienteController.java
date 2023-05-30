@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,8 +30,10 @@ import io.github.rodrigojfagundes.repository.ClienteRepository;
 //do recurso... ou seja (localhost:8080/api/clientes)
 @RestController
 @RequestMapping("/api/clientes")
+@CrossOrigin("http://localhost:4200")
 public class ClienteController {
 	
+
 	private final ClienteRepository repository;
 	
 	@Autowired
@@ -40,6 +43,11 @@ public class ClienteController {
 	
 	
 	//criando um metodo para SALVAR um CLIENTE no BANCO
+	//esse metodo vai receber do FRONT um CLIENTE em JSON com os seus DADOS
+	//NOME, CPF, etc... e vai CAD no BANCO
+	//
+	// Colocando a ANNOTATION @POSTMAPPING pq no no PADRAO REST
+	// quando nos vamos INSERIR um NOVO RECURSO nos usemos o metodo POST
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente salvar(@RequestBody @Valid Cliente cliente) {
@@ -49,17 +57,21 @@ public class ClienteController {
 	
 	
 	//Metodo para pegar as informacoes PELO O ID do CLIENTE
+	//
 	@GetMapping("{id}")
 	public Cliente acharPorId( @PathVariable Integer id) {
+
 		return repository
 				.findById(id)
 				.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
 	}
 	
 	//metodo para DELETAR um CLIENTE
+	//
 	@DeleteMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void deletar(@PathVariable Integer id) { 
+	public void deletar(@PathVariable Integer id) {
+ 
 	repository
 		.findById(id)
 		.map( cliente -> {

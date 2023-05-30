@@ -7,6 +7,7 @@ import lombok.Getter;
 
 public class ApiErrors {
 	
+
 	@Getter
 	private List<String> errors;
 	

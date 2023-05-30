@@ -20,6 +20,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//criando a classe/entidade CLIENTE, nela vai ficar armazenada as informações
+//sobre os clientes... Tipo NOME, IDADE, CPF, etc...
+//
 @Entity
 @Data
 @NoArgsConstructor
@@ -32,7 +35,6 @@ public class Cliente {
 	private Integer id;
 
 	@Column(nullable = false, length = 150)
-
 	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String nome;
 

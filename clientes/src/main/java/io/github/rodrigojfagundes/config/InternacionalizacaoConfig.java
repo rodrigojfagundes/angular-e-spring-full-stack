@@ -8,6 +8,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
+//classe para personalizar as mensagens de erro,para dar erro em portugues, etc...
+//e dar um erro mais facil de entender
+//
+//para transformar uma CLASSE em CONFIGURACAO vamos usar a ANNOTATION @CONFIGURATION
 @Configuration
 public class InternacionalizacaoConfig {
 	

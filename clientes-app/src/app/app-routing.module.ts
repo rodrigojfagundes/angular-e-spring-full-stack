@@ -4,9 +4,7 @@ import { HomeComponent } from './home/home.component';
 
 //aqui nos amos definir as rotas... tipo QUAL PAGINA vai para
 //qual COMPONENTE... Exemplo a baixo estamos fazendo a ROTA da pag
-// (localhost/HOME)... Dai vamos dizer qual sera o COMPONENTE
-//a ser ACESSADO quando cair no /HOME... (no caso vai cair no
-//HOMECOMPONENT)
+// (localhost/HOME)...
 const routes: Routes = [
 { path : 'home', component: HomeComponent}
 ];

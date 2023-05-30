@@ -17,6 +17,8 @@ import { ClientesModule } from './clientes/clientes.module';
     BrowserModule,
     AppRoutingModule,
     TemplateModule,
+    //importando o CLIENTEMODULE, para a aplicacao pd usar o MODULE
+    //de CLIENTES
     ClientesModule
   ],
   providers: [],

@@ -47,7 +47,6 @@ public class Cliente {
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataCadastro;
 	
-	
 	@PrePersist
 	public void prePersist() {
 		setDataCadastro(LocalDate.now());

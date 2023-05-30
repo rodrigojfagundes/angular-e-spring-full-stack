@@ -1,5 +1,7 @@
 package io.github.rodrigojfagundes.rest;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +35,18 @@ import io.github.rodrigojfagundes.repository.ClienteRepository;
 @CrossOrigin("http://localhost:4200")
 public class ClienteController {
 	
-
 	private final ClienteRepository repository;
-	
+
 	@Autowired
 	public ClienteController(ClienteRepository repository) {
 		this.repository = repository;
 	}
+
+	@GetMapping
+	public List<Cliente> obterTodos(){
+		return repository.findAll();
+	}
+	
 	
 	
 	//criando um metodo para SALVAR um CLIENTE no BANCO
@@ -78,12 +85,10 @@ public class ClienteController {
 			repository.delete(cliente);
 			return Void.TYPE;
 		})
+		//se caso nao encontrr o cliente, dai chama a excecao a baixo
 		.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
 	}
 	
-	
-	//criando metodo para ATUALIZAR um CLIENTE
-	//
 	@PutMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void atualizar( @PathVariable Integer id, @RequestBody @Valid Cliente clienteAtualizado) { 

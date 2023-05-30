@@ -20,12 +20,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class Cliente {
-	
+
 	@Id
-	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(nullable = false, length = 150)
 	private String name;
 
@@ -34,6 +33,7 @@ public class Cliente {
 	
 	@Column(name = "data_cadastro")
 	private LocalDate dataCadastro;
+	
 	
 	@PrePersist
 	public void prePersist() {

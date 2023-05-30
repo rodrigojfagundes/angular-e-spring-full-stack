@@ -11,10 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.Data;
-
-//Criando a ENTIDADE/CLASSE SERVICO... Nela vai ficar armazenado as informacoes
-//sobre cada servico
-//
+ 
 @Entity
 @Data
 public class Servico {
@@ -22,7 +19,7 @@ public class Servico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(nullable = false, length = 150)
 	private String descricao;
 	

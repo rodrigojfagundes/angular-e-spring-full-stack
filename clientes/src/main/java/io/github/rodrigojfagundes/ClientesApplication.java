@@ -12,18 +12,15 @@ import io.github.rodrigojfagundes.repository.ClienteRepository;
 @SpringBootApplication
 public class ClientesApplication {
 
+	
+	//testando a conexao com o BD, fazendo o CAD de um CLIENTE no BANCO
 	@Bean
 	public CommandLineRunner run(@Autowired ClienteRepository repository) {
 		return args -> {
-			//instanciando um novo CLIENTE, e passando as informacoes
 			Cliente cliente = Cliente.builder().cpf("00000000000").name("Fulano").build();
-			//chamando o nosso repository(CLIENTEREPOSITORY) q foi injetado ali em cima
-			//e pedindo para ele salvar o CLIENTE no BANCO... Pois a INTERFACE
-			//CLIENTEREPOSITORY e responsavel por CAD no BANCO
 			repository.save(cliente);
 		};
 	}
-	
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ClientesApplication.class, args);

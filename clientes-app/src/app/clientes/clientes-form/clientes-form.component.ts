@@ -14,13 +14,12 @@ success: boolean = false;
 errors: String[];
 
   constructor(private service: ClientesService) { 
-
+  
 this.cliente = new Cliente();
   }
 
   ngOnInit(): void {
   }
-
 
   //estamos passando um EVENTO q vem do FORMULARIO
   //CLIENTES-FORM.COMPONENT.HTML para ca
@@ -29,6 +28,9 @@ this.cliente = new Cliente();
     salvar(this.cliente)
     .subscribe( response => {
     this.success = true;
-    })
+    } , errorResponse => {
+    this.errors = errorResponse.error.errors;
+        }
+    )
   }
 }

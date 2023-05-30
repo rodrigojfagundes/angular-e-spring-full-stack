@@ -1,5 +1,6 @@
-//classe de SERVICOS de CLIENTE... Ela pega as solicitacoes do tipo CLIENTE
+//classe de SERVICOS de CLIENTE... Ela pega as solicitacoes
 //e envia para o JAVA(backend)
+//
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cliente } from './clientes/cliente';
@@ -10,6 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class ClientesService {
 
+//injetando no construtor o HTTPCLIENT para fazer requesicao RESTFUL
+//dai vamos ter acesso aos metodos POST, GET, PUT, DELETE, etc...
   constructor(private http: HttpClient) {}
 
 //criando um metodo de nome SALVAR/CADASTRAR q recebe um CLIENTE do tipo CLIENTE 
@@ -32,20 +35,17 @@ atualizar( cliente: Cliente ) : Observable<any>{
 
 //criano um metodo de nome GET CLIENTES, para PEDIR para o JAVA+SPRING(BACKEND)
 //os CLIENTES q estao CAD no BANCO
+//
 getClientes() : Observable<Cliente[]>{
     return this.http.get<Cliente[]>('http://localhost:8080/api/clientes');
 }
 
 //metodo para OBTER um CLIENTE PELO O ID... Ele vai ser UTIL para EDITAR
 //os CLIENTES...
-//esse metodo recebe um ID do tipo NUMBER... Q e o ID do cliente q queremos
-//editar
-//esse metodo retona um OBSERVABLE do tipo CLIENTE
+//
 getClienteById(id: number) : Observable<Cliente>{
     return this.http.get<any>(`http://localhost:8080/api/clientes/${id}`);
 }
-
-
 
 //metodo para DELETAR um CLIENTE PELO O ID... 
 //

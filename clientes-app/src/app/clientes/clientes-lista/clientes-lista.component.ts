@@ -28,6 +28,7 @@ mensagemErro: string;
 //criando o metodo NOVOCADASTRO, esse metodo sera chamado quando CLICAR
 //no BOTAO de nome NOVO q tem na tela de CLIENTES
     novoCadastro(){
+
     this.router.navigate(['/clientes-form'])
     }
 
@@ -38,8 +39,8 @@ preparaDelecao(cliente: Cliente){
 this.clienteSelecionado = cliente;
 }
 
-
 //criando um METODO para DELETARCLIENTE... 
+//
 deletarCliente(){
 this.service
 .deletar(this.clienteSelecionado)

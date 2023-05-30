@@ -1,5 +1,5 @@
-//classe de SERVICOS de CLIENTE... Ela pega as solicitacoes
-//e envia para o SPRING do JAVA(backend)
+//classe de SERVICOS de CLIENTE... Ela pega as solicitacoes do tipo CLIENTE
+//e envia para o JAVA(backend)
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cliente } from './clientes/cliente';
@@ -32,13 +32,15 @@ atualizar( cliente: Cliente ) : Observable<any>{
 
 //criano um metodo de nome GET CLIENTES, para PEDIR para o JAVA+SPRING(BACKEND)
 //os CLIENTES q estao CAD no BANCO
-//
 getClientes() : Observable<Cliente[]>{
     return this.http.get<Cliente[]>('http://localhost:8080/api/clientes');
 }
 
-//metodo para OBTER um CLIENTE PELO O ID...
-//
+//metodo para OBTER um CLIENTE PELO O ID... Ele vai ser UTIL para EDITAR
+//os CLIENTES...
+//esse metodo recebe um ID do tipo NUMBER... Q e o ID do cliente q queremos
+//editar
+//esse metodo retona um OBSERVABLE do tipo CLIENTE
 getClienteById(id: number) : Observable<Cliente>{
     return this.http.get<any>(`http://localhost:8080/api/clientes/${id}`);
 }

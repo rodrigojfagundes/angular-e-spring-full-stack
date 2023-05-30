@@ -5,7 +5,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,7 +24,6 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/servicos-prestados")
-@CrossOrigin("http://localhost:4200")
 @RequiredArgsConstructor
 public class ServicoPrestadoController {
 	
@@ -45,9 +43,8 @@ public class ServicoPrestadoController {
 				.orElseThrow(() -> 
 				new ResponseStatusException(
 						HttpStatus.BAD_REQUEST, "Cliente inexistente."));
-
+		
 		ServicoPrestado servicoPrestado = new ServicoPrestado();
-
 		servicoPrestado.setDescricao(dto.getDescricao());
 		servicoPrestado.setData( data );
 		servicoPrestado.setCliente(cliente);
@@ -59,12 +56,6 @@ public class ServicoPrestadoController {
 		
 	}
 	
-	
-	//		METODO PARA PESQUISAR(BUSCAR) SERVICOSPRESTADOS
-	//
-	//metodo para fazer a PESQUISA de SERVICOSPRESTADO
-	//pesquisar atraves do NOME DO CLIENTE, e ATRAVES DA DATA
-	//
 	@GetMapping
 	public List<ServicoPrestado> pesquisar(
 			@RequestParam(value = "nome", required = false, defaultValue = "") String nome,

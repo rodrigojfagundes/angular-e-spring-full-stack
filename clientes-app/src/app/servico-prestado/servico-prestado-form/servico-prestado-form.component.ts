@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../clientes/cliente';
 import { ClientesService } from '../../clientes.service';
 import { ServicoPrestado } from '../servicoPrestado';
-//importando o SERVICO-PRESTADO-SERVICE, pois ele PEGA O OBJ/VAR SERVICOPRESTADO
-//e ENVIA para a API DO BACKEND(JAVA+SPRING)
+
 import { ServicoPrestadoService } from '../../servico-prestado.service';
 
 @Component({
@@ -20,6 +19,7 @@ servico: ServicoPrestado;
   private clienteService: ClientesService,
   private service: ServicoPrestadoService
   ) { 
+
   this.servico = new ServicoPrestado();
    }
 
@@ -31,7 +31,6 @@ servico: ServicoPrestado;
   }
 
 onSubmit(){
-
 this.service
 .salvar(this.servico)
 .subscribe(response => {

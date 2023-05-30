@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router'
 import { Cliente } from '../cliente';
+
 import { ClientesService } from'../../clientes.service'
 import { Observable } from 'rxjs';
 
@@ -30,6 +31,7 @@ this.cliente = new Cliente();
   params.subscribe( urlParams => {
     this.id = urlParams['id'];
     if(this.id ){
+
     this.service
     .getClienteById(this.id)
     .subscribe( response => this.cliente = response ,
@@ -42,8 +44,9 @@ this.cliente = new Cliente();
 voltarParaListagem(){
 
 this.router.navigate(['/clientes-lista'])
-
 }
+
+
   onSubmit(){
 
 if(this.id){

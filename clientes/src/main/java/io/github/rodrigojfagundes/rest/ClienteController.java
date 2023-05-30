@@ -6,7 +6,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,7 +31,6 @@ import io.github.rodrigojfagundes.repository.ClienteRepository;
 //do recurso... ou seja (localhost:8080/api/clientes)
 @RestController
 @RequestMapping("/api/clientes")
-@CrossOrigin("http://localhost:4200")
 public class ClienteController {
 	
 	private final ClienteRepository repository;
@@ -53,8 +51,6 @@ public class ClienteController {
 	//esse metodo vai receber do FRONT um CLIENTE em JSON com os seus DADOS
 	//NOME, CPF, etc... e vai CAD no BANCO
 	//
-	// Colocando a ANNOTATION @POSTMAPPING pq no no PADRAO REST
-	// quando nos vamos INSERIR um NOVO RECURSO nos usemos o metodo POST
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente salvar(@RequestBody @Valid Cliente cliente) {
@@ -68,18 +64,22 @@ public class ClienteController {
 	//como no RESTFUL para nos pegarmos uma informacao temos q usar o metodo GET
 	//entao nos vamos usar a ANNOTATION @GETMAPPING, para (PEGAR/TRAZER)
 	//o cliente conforme o ID
+	//a ANNOTATION @PATHVARIABLE serve para dizer q o ID q recebemos no GETMAPPING e
+	//o ID q sera passado para o ACHARPORID
 	@GetMapping("{id}")
 	public Cliente acharPorId( @PathVariable Integer id) {
-
 		return repository
 				.findById(id)
 				.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
 	}
 	
 	//metodo para DELETAR um CLIENTE
+	//para isso nos vamos usar a ANNOTATION @DELETEMAPPING, q ira receber o ID
+	//do CLIENTE q queremos deletar
 	@DeleteMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deletar(@PathVariable Integer id) {
+ 
 	repository
 		.findById(id)
 		.map( cliente -> {
@@ -95,18 +95,15 @@ public class ClienteController {
 	//a ANNOTATION @PATHVARIABLE serve para dizer q o ID vai ser um valor q vai vim
 	//na URL da requisição (ou seja a ID do CLIENTE q queremos ATUALIZAR)
 	//a ANNOTATION @REQUESTBODY vai receber um CLIENTE com os VALORES ATUALIZADOS
-	//
-	//como o metodo para ATULIZAR em RESTFUL e PUT, vamos ter q usar a ANNOTATION
-	//@PUTMAPPING q recebe o ID do CLIENTE q queremos atualizar
 	@PutMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void atualizar( @PathVariable Integer id, @RequestBody @Valid Cliente clienteAtualizado) {
+	public void atualizar( @PathVariable Integer id, @RequestBody @Valid Cliente clienteAtualizado) { 
 	repository
 		.findById(id)
 		.map( cliente -> {
-
 			cliente.setNome(clienteAtualizado.getNome());
 			cliente.setCpf(clienteAtualizado.getCpf());			
+
 			return repository.save(cliente);
 		})
 		.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );

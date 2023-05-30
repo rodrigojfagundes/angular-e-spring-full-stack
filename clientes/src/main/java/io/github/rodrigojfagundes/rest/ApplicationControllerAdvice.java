@@ -14,13 +14,13 @@ import org.springframework.web.server.ResponseStatusException;
 
 import io.github.rodrigojfagundes.rest.exceptions.ApiErrors;
 
+
 @RestControllerAdvice
 public class ApplicationControllerAdvice {
-
+	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public ApiErrors handleValidationErros(MethodArgumentNotValidException ex) {
-
 		BindingResult bindingResult = ex.getBindingResult();
 		List<String> messages = bindingResult.getAllErrors()
 		.stream()
@@ -29,10 +29,9 @@ public class ApplicationControllerAdvice {
 
 		return new ApiErrors(messages);
 	}
-	
+
 	@ExceptionHandler(ResponseStatusException.class)
 	public ResponseEntity handleResponseStatusExceptions(ResponseStatusException ex) {
-
 		String menssagemErro = ex.getMessage();
 		HttpStatus codigoStatus = ex.getStatus();
 

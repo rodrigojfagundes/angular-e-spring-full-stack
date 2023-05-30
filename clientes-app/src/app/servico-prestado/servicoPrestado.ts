@@ -1,5 +1,5 @@
 //Criandoo arquivo SERVICOPRESTADO.TS q tera os mesmos ATRIBUTOS(VAR) 
-//q o SERVICOPRESTADODTO.JAVA(dto)(q ta no SPRING)
+//q o SERVICOPRESTADODTO.JAVA(dto)(q ta no backend)
 //
 export class ServicoPrestado {
 

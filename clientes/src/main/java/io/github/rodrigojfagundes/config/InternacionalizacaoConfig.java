@@ -11,7 +11,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 @Configuration
 public class InternacionalizacaoConfig {
 	
-	
+
 	@Bean
 	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
@@ -21,6 +21,7 @@ public class InternacionalizacaoConfig {
 		return messageSource;
 	}
 	
+
 	@Bean
 	public LocalValidatorFactoryBean validatorFactoryBean() {
 		LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();

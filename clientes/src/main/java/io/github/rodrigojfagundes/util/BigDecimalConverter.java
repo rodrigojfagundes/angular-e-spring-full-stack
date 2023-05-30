@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 import org.springframework.stereotype.Component;
 
-//classe para converter a STRING VALOR(valor de um SERVICOPRESTADO) em BIGDECIMAL
 @Component
 public class BigDecimalConverter {
  

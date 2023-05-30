@@ -1,3 +1,6 @@
+//CLASSE SERVICO-PRESTADO-SERVICE... Ela vai servir para RECEBER
+//o OBJ no tipo SERVICO-PRESTADO, e enviar ele para a API q fica
+//no SERVICOPRESTADOCONTROLLER.JAVA q roda no BACKEND (JAVA+SPRING)
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ServicoPrestado } from './servico-prestado/servicoPrestado';
@@ -14,12 +17,8 @@ apiURL: string = environment.apiUrlBase + "/api/servicos-prestados";
 
   constructor(private http: HttpClient) {}
 
- //criando um METODO SALVAR q vai receber um OBJ do tipo SERVICO-PRESTADO
-  //e passar esse OBJ para a API q roda no BACKEND(JAVA+SPRING)
-  //
-  //e vamos retornar um OBSERVABLE do tipo SERVICOPRESTADO
   salvar(servicoPrestado: ServicoPrestado) : Observable<ServicoPrestado>{
- 
+
     return this.http.post<ServicoPrestado>(this.apiURL, servicoPrestado);
   
   }

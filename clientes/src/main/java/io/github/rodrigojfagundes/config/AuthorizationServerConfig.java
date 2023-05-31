@@ -17,7 +17,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
-
+	
 	@Bean
 	public TokenStore tokenStore() {
 		return new InMemoryTokenStore();

@@ -27,14 +27,12 @@ import lombok.NoArgsConstructor;
 //e assim fazer uma TABELA no banco com o nome CLIENTE, e os ATRIBUTOS serem as
 //COLUNAS
 @Entity
-//ANNOTATION @DATA ela cria os GET e SET automaticamente(invisivel) e 
-//o TOSTRING, HASHCODE EQUALS e o CONSTRUTOR sem e COM PARAMETROS (de forma invisivel)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Cliente {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -52,6 +50,9 @@ public class Cliente {
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataCadastro;
 	
+	
+	//metodo para os CLIENTES terem uma DATA de CADASTRO padrao...
+	//q no caso sera a data atual
 	@PrePersist
 	public void prePersist() {
 		setDataCadastro(LocalDate.now());

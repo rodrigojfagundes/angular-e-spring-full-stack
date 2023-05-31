@@ -19,7 +19,7 @@ public class InternacionalizacaoConfig {
 		messageSource.setDefaultLocale(Locale.getDefault());
 		return messageSource;
 	}
-	
+
 	@Bean
 	public LocalValidatorFactoryBean validatorFactoryBean() {
 		LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();

@@ -14,7 +14,6 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
-
  
 @Entity
 @Data

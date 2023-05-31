@@ -45,13 +45,10 @@ public class ServicoPrestadoController {
 				new ResponseStatusException(
 						HttpStatus.BAD_REQUEST, "Cliente inexistente."));
 		
-	
 		ServicoPrestado servicoPrestado = new ServicoPrestado();
-
 		servicoPrestado.setDescricao(dto.getDescricao());
 		servicoPrestado.setData( data );
 		servicoPrestado.setCliente(cliente);
-
 		servicoPrestado.setValor(bigDecimalConverter.converter(dto.getPreco()));
 		
 		return repository.save(servicoPrestado);
@@ -67,7 +64,7 @@ public class ServicoPrestadoController {
 			@RequestParam(value = "nome", required = false, defaultValue = "") String nome,
 			@RequestParam(value = "mes", required = false) Integer mes
 			){
-				
+
 		return repository.findByNomeClienteAndMes("%" + nome + "%", mes);	
 	}
 }

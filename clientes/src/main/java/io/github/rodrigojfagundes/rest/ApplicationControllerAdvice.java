@@ -29,13 +29,12 @@ public class ApplicationControllerAdvice {
 		return new ApiErrors(messages);
 	}
 	
-	//METORO PARA TRATAR ERROS DO TIPO RESPONSESTATUSEXCEPTIONS
-	//
 	@ExceptionHandler(ResponseStatusException.class)
 	public ResponseEntity handleResponseStatusExceptions(ResponseStatusException ex) {
 		String mensagemErro = ex.getMessage();
 		HttpStatus codigoStatus = ex.getStatus();
 		
+
 		ApiErrors apiErrors = new ApiErrors(mensagemErro);
 		
 		return new ResponseEntity(apiErrors, codigoStatus);

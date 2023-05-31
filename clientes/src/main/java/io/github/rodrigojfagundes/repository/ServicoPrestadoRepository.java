@@ -10,6 +10,7 @@ import io.github.rodrigojfagundes.model.entity.ServicoPrestado;
 
 public interface ServicoPrestadoRepository extends JpaRepository<ServicoPrestado, Integer> {
 
+
 	@Query(" select s from ServicoPrestado s join s.cliente c " +
 	" where upper( c.nome ) like upper( :nome) and MONTH(s.data) =:mes ")
 	List<ServicoPrestado> findByNomeClienteAndMes(

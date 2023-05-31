@@ -1,5 +1,5 @@
 //classe de SERVICOS de CLIENTE... Ela pega as solicitacoes
-//e envia para o SPRING do JAVA(backend)
+//e envia para o JAVA(backend)
 //
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -13,24 +13,14 @@ import { environment } from '../environments/environment'
 export class ClientesService {
 
 apiURL: string = environment.apiUrlBase + '/api/clientes';
-
   constructor(private http: HttpClient) {}
 
 //criando um metodo de nome SALVAR/CADASTRAR q recebe um CLIENTE do tipo CLIENTE 
 //q vamos passar para o JAVA no BACKEND para SALVAR
 //
 salvar( cliente: Cliente ) : Observable<Cliente>{
-const tokenString = localStorage.getItem('access_token')
-const token = JSON.parse(tokenString)
 
-const headers = {
-    'Authorization' : 'Bearer ' + token.access_token
-}
-  //chamando o METODO POST da VAR/OBJ HTTP do tipo HTTPCLIENT e passando
-  //esse POST q vamos ENVIAR um OBJ/VAR do tipo CLIENTE
-  //dai nos INFORMAMOS qual a URL q ta RODANDO A API no BACKEND
-  //e INFORMAMOS TBM qual e a VAR/OBJ q sera CADASTRADO, no CASO CLIENTE
-    return this.http.post<Cliente>(`${this.apiURL}`, cliente, {headers});
+    return this.http.post<Cliente>(`${this.apiURL}`, cliente);
 }
 
 
@@ -38,23 +28,21 @@ const headers = {
 //com ID q vamos passar para o JAVA no BACKEND para EDITAR
 //
 atualizar( cliente: Cliente ) : Observable<any>{
+
     return this.http.put<Cliente>(`${this.apiURL}/${cliente.id}` , cliente);
 }
 
 
 //criano um metodo de nome GET CLIENTES, para PEDIR para o JAVA+SPRING(BACKEND)
 //os CLIENTES q estao CAD no BANCO
+//
 getClientes() : Observable<Cliente[]>{
-const tokenString = localStorage.getItem('access_token')
-const token = JSON.parse(tokenString)
-const headers = {
-    'Authorization' : 'Bearer ' + token.access_token
-}
-    return this.http.get<Cliente[]>(this.apiURL, {headers});
+
+    return this.http.get<Cliente[]>(this.apiURL);
 }
 
-//metodo para OBTER um CLIENTE PELO O ID...
-//
+//metodo para OBTER um CLIENTE PELO O ID... 
+//esse metodo recebe um ID do tipo NUMBER...
 getClienteById(id: number) : Observable<Cliente>{
 
     return this.http.get<any>(`${this.apiURL}/${id}`);
@@ -62,6 +50,8 @@ getClienteById(id: number) : Observable<Cliente>{
 
 
 //metodo para DELETAR um CLIENTE PELO O ID... 
+//esse metodo recebe um CLIENTE do tipo CLIENTE... Q e o cliente q queremos
+//DELETAR (e passar para o JAVA+SPRING BACKEND DELETAR)
 //
 deletar(cliente: Cliente) : Observable<any>{
 

@@ -4,6 +4,9 @@ import { ServicoPrestadoFormComponent } from './servico-prestado-form/servico-pr
 import { ServicoPrestadoListaComponent } from './servico-prestado-lista/servico-prestado-lista.component';
 import { LayoutComponent } from '../layout/layout.component';
 
+//criando as rotas das TELAS conforme os LINKS
+//tipo quando CLICA EM SERVICOSPRESTADOS, vai para QUAL LINK e esse LINK
+//chama qual COMPONENT etc...
 const routes: Routes = [
     { path: 'servicos-prestados', component: LayoutComponent, children:[
     { path : 'form', component: ServicoPrestadoFormComponent },

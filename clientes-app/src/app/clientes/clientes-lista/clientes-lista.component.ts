@@ -25,12 +25,7 @@ mensagemErro: string;
         .subscribe( resposta => this.clientes = resposta );
   }
 
-//criando o metodo NOVOCADASTRO, esse metodo sera chamado quando CLICAR
-//no BOTAO de nome NOVO q tem na tela de CLIENTES
     novoCadastro(){
-    //chamando o metodo NAVIGATE da nossa VAR ROUTER/OBJ ROUTER, e para o
-    //NAVIGATE nos vamos passar o LINK/ENDERECO de para onde deve NAVEGAR
-    //ao clicar no LINK
     this.router.navigate(['/clientes/form'])
     }
 

@@ -21,6 +21,7 @@ apiURL: string = environment.apiUrlBase + "/api/servicos-prestados";
   //e passar esse OBJ para a API q roda no BACKEND(JAVA+SPRING)
   //
   salvar(servicoPrestado: ServicoPrestado) : Observable<ServicoPrestado>{
+
     return this.http.post<ServicoPrestado>(this.apiURL, servicoPrestado);
   }
 

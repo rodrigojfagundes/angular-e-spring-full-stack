@@ -27,11 +27,11 @@ clientSecret: string = environment.clientSecret;
 salvar(usuario: Usuario) : Observable<any> {
 
     return this.http.post<any>(this.apiURL, usuario);
+
     }
 
 
 tentarLogar(username: string, password: string) : Observable<any>{
-
     const params = new HttpParams()
         .set('username', username)
         .set('password', password)
@@ -43,7 +43,7 @@ const headers = {
 }
 
     return this.http.post(this.tokenURL, params.toString(), { headers });
-
+    
 }
 
 }

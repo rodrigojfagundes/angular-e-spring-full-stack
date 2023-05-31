@@ -1,7 +1,3 @@
-<!--aqui e a tela com o DESIGN(HTML) da listagem dos clientes
-ou seja vai ter meio q uma tabela com as informacoes dos clientes cadastrados
--->
-
 <h1 class="mt-4">Clientes</h1>
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item active">Consulta</li>
@@ -9,7 +5,6 @@ ou seja vai ter meio q uma tabela com as informacoes dos clientes cadastrados
 <div class="container">
     <div class="row">
     <div class="col-md12">
-
         <div class="alert alert-success" role="alert" *ngIf="mensagemSucesso">
         {{ mensagemSucesso }}
             </div>
@@ -53,7 +48,7 @@ ou seja vai ter meio q uma tabela com as informacoes dos clientes cadastrados
                     routerLink="/clientes/form/{{ cliente.id}}">
                     <i class="fa fa-edit"></i>
                 </button>
-            
+
               <button class="btn btn-danger" (click)="preparaDelecao(cliente)"
               data-toggle="modal" data-target="#modalDelecao">
                     <i class="fa fa-trash"></i>
@@ -64,6 +59,7 @@ ou seja vai ter meio q uma tabela com as informacoes dos clientes cadastrados
     </table>
     </div>
 </div>
+
 <div id="modalDelecao" class="modal" fade role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -74,11 +70,11 @@ ou seja vai ter meio q uma tabela com as informacoes dos clientes cadastrados
             <div class="modal-body" *ngIf="clienteSelecionado">
                 Confirma a delecao do(a) Cliente {{ clienteSelecionado.nome }}?
             </div>
-
+            
             <div class="modal-footer">
                 <button class="btn btn-success" (click)="deletarCliente()" 
                     data-dismiss="modal">Confirmar</button>
-
+            
                 <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
             </div>
         </div>

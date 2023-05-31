@@ -39,6 +39,7 @@ public class Cliente {
 	private String nome;
 
 	@Column(nullable = false, length = 11)
+
 	@NotNull(message = "{campo.cpf.obrigatorio}")
 	@CPF(message = "{campo.cpf.invalido}")
 	private String cpf;
@@ -46,7 +47,9 @@ public class Cliente {
 	@Column(name = "data_cadastro", updatable = false)
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataCadastro;
-
+		
+	//metodo para os CLIENTES terem uma DATA de CADASTRO padrao...
+	//q no caso sera a data atual
 	@PrePersist
 	public void prePersist() {
 		setDataCadastro(LocalDate.now());

@@ -32,14 +32,14 @@ import io.github.rodrigojfagundes.repository.ClienteRepository;
 @RestController
 @RequestMapping("/api/clientes")
 public class ClienteController {
-
+	
 	private final ClienteRepository repository;
 	
 	@Autowired
 	public ClienteController(ClienteRepository repository) {
 		this.repository = repository;
 	}
-
+	
 	@GetMapping
 	public List<Cliente> obterTodos(){
 		return repository.findAll();
@@ -53,27 +53,28 @@ public class ClienteController {
 	//
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	//usando a ANNOTATION @REQUESTBODY para informar q o CLIENTE é o OBJ
-	//q vai VIM da REQUISICAO do FRONT... Ou seja q e o CLIENTE q vai vim do FRONT
 	public Cliente salvar(@RequestBody @Valid Cliente cliente) {
-		//e vamos passar o CLIENTE q recebemos do front para o REPOSITORY do tipo
-		//CLIENTEREPOSITORY para SALVAR no BANCO
+
 		return repository.save(cliente);
 	}
 	
 	
 	//Metodo para pegar as informacoes PELO O ID do CLIENTE
 	//
+	//como no RESTFUL para nos pegarmos uma informacao temos q usar o metodo GET
+	//entao nos vamos usar a ANNOTATION @GETMAPPING, para (PEGAR/TRAZER)
+	//o cliente conforme o ID
+	//
 	@GetMapping("{id}")
 	public Cliente acharPorId( @PathVariable Integer id) {
-
 		return repository
 				.findById(id)
 				.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
 	}
 	
 	//metodo para DELETAR um CLIENTE
-	//
+	//para isso nos vamos usar a ANNOTATION @DELETEMAPPING, q ira receber o ID
+	//do CLIENTE q queremos deletar
 	@DeleteMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deletar(@PathVariable Integer id) { 

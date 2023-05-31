@@ -19,19 +19,14 @@ public class WebConfig {
 		List<String> all = Arrays.asList("*");
 		
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
-
 		corsConfiguration.setAllowedOrigins(all);
 		corsConfiguration.setAllowedHeaders(all);
-
 		corsConfiguration.setAllowedMethods(all);
 		corsConfiguration.setAllowCredentials(true);
 
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-
 		source.registerCorsConfiguration("/**", corsConfiguration);
-		
 		CorsFilter corsFilter = new CorsFilter(source);
-
 		FilterRegistrationBean<CorsFilter> filter = new FilterRegistrationBean<>(corsFilter);
 
 		filter.setOrder(Ordered.HIGHEST_PRECEDENCE);

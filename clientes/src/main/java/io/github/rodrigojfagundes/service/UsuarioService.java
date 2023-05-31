@@ -10,12 +10,13 @@ import org.springframework.stereotype.Service;
 import io.github.rodrigojfagundes.model.entity.Usuario;
 import io.github.rodrigojfagundes.repository.UsuarioRepository;
 
+
 @Service
 public class UsuarioService implements UserDetailsService{
 
 	@Autowired
 	private UsuarioRepository repository;
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Usuario usuario = repository.findByUsername(username)

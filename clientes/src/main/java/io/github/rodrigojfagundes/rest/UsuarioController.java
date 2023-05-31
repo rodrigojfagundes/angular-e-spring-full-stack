@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/usuarios")
 @RequiredArgsConstructor
 public class UsuarioController {
-	
+
 	private final UsuarioRepository repository;
 	
 	@PostMapping

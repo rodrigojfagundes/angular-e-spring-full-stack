@@ -25,7 +25,7 @@ public class ServicoPrestado {
 
 	@Column(nullable = false, length = 150)
 	private String descricao;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;

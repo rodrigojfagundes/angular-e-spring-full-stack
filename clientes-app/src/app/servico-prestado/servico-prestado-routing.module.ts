@@ -5,6 +5,7 @@ import { ServicoPrestadoListaComponent } from './servico-prestado-lista/servico-
 import { LayoutComponent } from '../layout/layout.component';
 
 const routes: Routes = [
+
     { path: 'servicos-prestados', component: LayoutComponent, children:[
     { path : 'form', component: ServicoPrestadoFormComponent },
     { path: 'lista', component: ServicoPrestadoListaComponent},

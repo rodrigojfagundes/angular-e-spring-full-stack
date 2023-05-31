@@ -29,6 +29,7 @@ import { LayoutComponent } from './layout/layout.component'
     HttpClientModule,
     AppRoutingModule,
     TemplateModule,
+
     ClientesModule,
     ServicoPrestadoModule
   ],

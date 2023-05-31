@@ -14,6 +14,7 @@ loginError: boolean;
 cadastrando: boolean;
 
   constructor(
+
   private router: Router
   ) { }
 

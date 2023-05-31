@@ -5,6 +5,7 @@ import { ClientesListaComponent } from './clientes-lista/clientes-lista.componen
 import { LayoutComponent } from '../layout/layout.component';
 
 const routes: Routes = [
+
 { path: 'clientes', component: LayoutComponent, children:[
 
 {path: 'form' , component: ClientesFormComponent},

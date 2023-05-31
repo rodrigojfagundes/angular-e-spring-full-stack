@@ -13,12 +13,9 @@ import lombok.NoArgsConstructor;
 //jogados para o RESOURCER/controlador, e assim da mais seguranca e 
 //economiza dados na REDE
 //
-//ANNOTATION @DATA para fazer os CONSTRUTORES e GET E SET
 @Data
 @NoArgsConstructor
 public class ServicoPrestadoDTO {
-
-	//declarando as VAR/ATRIBUTOS... E chamando as mensagens q estao no MESSAGES.PROPERTIES
 	
 	@NotEmpty(message = "{campo.descricao.obrigatorio}")
 	private String descricao;

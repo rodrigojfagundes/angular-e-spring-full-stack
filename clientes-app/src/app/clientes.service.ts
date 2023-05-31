@@ -1,3 +1,6 @@
+//classe de SERVICOS de CLIENTE... Ela pega as solicitacoes
+//e envia para o SPRING do JAVA(backend)
+//
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cliente } from './clientes/cliente';

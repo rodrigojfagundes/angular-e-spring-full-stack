@@ -1,5 +1,3 @@
-<!--aqui e a tela do os DESIGN(HTML) da PAGINA de LOGIN, e ela
-vai chamar os METODOS, VAR, etc... do arquivo LOGIN.COMPONENT.TS-->
 <div class="bg-primary">
 <div id="layoutAuthentication">
     <div id="layoutAuthentication_content">
@@ -9,7 +7,7 @@ vai chamar os METODOS, VAR, etc... do arquivo LOGIN.COMPONENT.TS-->
                 <div class="col-lg-5">
                     <div class="card shadow-lg border-0 rounded-lg mt-5">
                         <div class="card-header">
-                        <!--aqui vai ficar o formulario-->
+
                         <h3 class="text-center font-weight-light- y-4">
                             {{ cadastrando ? 'Cadastro de Novo Usuario' : 'Entrar'}}
                             </h3>
@@ -38,6 +36,7 @@ vai chamar os METODOS, VAR, etc... do arquivo LOGIN.COMPONENT.TS-->
                                             class="form-control py-4"
                                             placeholder="Digite sua Senha" />
                                 </div>
+
                                 <div class="form-group align-items-center justify-content-between mt-4 mb-0">
                                     <button type="submit" class="btn btn-primary" *ngIf="!cadastrando">
                                         Enviar

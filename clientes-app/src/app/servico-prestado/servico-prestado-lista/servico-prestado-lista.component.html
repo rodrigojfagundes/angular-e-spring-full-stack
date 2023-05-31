@@ -17,7 +17,7 @@ especifico... etc...
                     name="nome" class="form-control"
                     id="inputNome">
         </div>
-		
+
         <div class="col-md-6">
             <label for="inputMes">Mês:</label>
 
@@ -49,7 +49,6 @@ especifico... etc...
 
 <br />
 <div class="row">
-
         <div class="alert alert-warning" role="alert" *ngIf="message">
         {{ message }}
             </div>
@@ -64,7 +63,6 @@ especifico... etc...
             </tr>
         </thead>
         <tbody>
-
         <tr *ngFor="let s of lista">
             <td>{{ s.cliente.nome }}</td>
             <td>{{ s.descricao }}</td>

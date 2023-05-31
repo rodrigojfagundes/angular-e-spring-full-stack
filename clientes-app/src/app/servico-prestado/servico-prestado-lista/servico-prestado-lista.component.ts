@@ -9,15 +9,10 @@ import { ServicoPrestadoService } from '../../servico-prestado.service'
 })
 export class ServicoPrestadoListaComponent implements OnInit {
 
-//declarando os ATRIBUTOS/VAR...
-//vao ser util para nos PESQUISARMOS um SERVICO-PRESTADO...
-//EX vamos colocar o NOME do CLIENTE e o MES... Dai vai aparecer os
-//SERVICOPRESTADO para esse CLIENTE no MES EM ESPECIFICO
 nome: string;
 mes: number;
 meses: number[];
 lista: ServicoPrestadoBusca[];
-
 message: string;
 
   constructor(

@@ -18,6 +18,7 @@ mensagemSucesso: string;
 errors: String[]; 
 
   constructor(
+
   private router: Router,
   private authService: AuthService
   ) { }
@@ -31,6 +32,7 @@ onSubmit(){
 
         this.router.navigate(['/home'])
         }, HttpErrorResponse => {
+
         this.errors = ['Usuario e/ou senha incorreto(s).']
         })
 }
@@ -39,19 +41,17 @@ preparaCadastrar(event){
     event.preventDefault();
     this.cadastrando = true;
 }
+
 cancelaCadastro(){
 this.cadastrando = false;
 }
 
-//metodo para SALVAR/CADASTRAR USUARIO
 cadastrar(){
     const usuario: Usuario = new Usuario();
     usuario.username = this.username
     usuario.username = this.username;
     usuario.password = this.password;
 
-    //chamando o METODO SALVAR q ta no AUTHSERVICE e passando para ele
-    //o OBJ/VAR/CONST USUARIO
     this.authService
         .salvar(usuario)
         .subscribe( response =>  {

@@ -11,8 +11,6 @@ const routes: Routes = [
 { path: 'lista', component: ClientesListaComponent},
 { path: '', redirectTo : '/clientes/lista', pathMatch: 'full' }
 ]},
-
-
 ];
 
 @NgModule({

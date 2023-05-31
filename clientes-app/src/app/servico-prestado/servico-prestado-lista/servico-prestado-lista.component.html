@@ -1,3 +1,8 @@
+<!--aqui e a tela com o DESIGN(HTML) da listagem dos SERVICOPRESTADO
+ou seja vai ter meio q uma tela com as informacoes dos SERVICOSPRESTADO
+para nos podermos procurar um SERVICOPRESTADO para um CLIENTE em um MES
+especifico... etc...
+-->
 <h1 class="mt-4">Servico Prestado</h1>
 <ol class="breadcrumb mb-4">
     <li class="breadcrum-bitem active">Consulta</li>
@@ -7,6 +12,7 @@
     <div class="row">
         <div class="col-md-6">
             <label for="inputNome">Nome Cliente</label>
+
             <input type="text" [(ngModel)]="nome"
                     name="nome" class="form-control"
                     id="inputNome">
@@ -26,6 +32,7 @@
     </div>
 
 <br />
+
     <div class="row">
         <div class="col-md-3">
             <button type="submit" class="btn btn-primary">
@@ -58,6 +65,7 @@
             </tr>
         </thead>
         <tbody>
+
         <tr *ngFor="let s of lista">
             <td>{{ s.cliente.nome }}</td>
             <td>{{ s.descricao }}</td>

@@ -1,6 +1,4 @@
-//classe de SERVICOS de CLIENTE... Ela pega as solicitacoes
-//e envia para o SPRING do JAVA(backend)
-//
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cliente } from './clientes/cliente';
@@ -37,7 +35,6 @@ atualizar( cliente: Cliente ) : Observable<any>{
 //os CLIENTES q estao CAD no BANCO
 //
 getClientes() : Observable<Cliente[]>{
-
     return this.http.get<Cliente[]>(this.apiURL);
 }
 
@@ -50,6 +47,8 @@ getClienteById(id: number) : Observable<Cliente>{
 
 
 //metodo para DELETAR um CLIENTE PELO O ID... 
+//esse metodo recebe um CLIENTE do tipo CLIENTE... Q e o cliente q queremos
+//DELETAR (e passar para o JAVA+SPRING BACKEND DELETAR)
 //
 deletar(cliente: Cliente) : Observable<any>{
 

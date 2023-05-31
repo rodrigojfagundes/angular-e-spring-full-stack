@@ -21,7 +21,6 @@ apiURL: string = environment.apiUrlBase + "/api/servicos-prestados";
   //e passar esse OBJ para a API q roda no BACKEND(JAVA+SPRING)
   //
   salvar(servicoPrestado: ServicoPrestado) : Observable<ServicoPrestado>{
-
     return this.http.post<ServicoPrestado>(this.apiURL, servicoPrestado);
   }
 
@@ -33,7 +32,6 @@ apiURL: string = environment.apiUrlBase + "/api/servicos-prestados";
 buscar(nome: string, mes: number) : Observable<ServicoPrestadoBusca[]>{
 const httpParams = new HttpParams().set("nome", nome).set("mes", mes? mes.toString() : '');
 const url = this.apiURL + "?" + httpParams.toString();
-
     console.log(url);
     return this.http.get<any>(url);
 }

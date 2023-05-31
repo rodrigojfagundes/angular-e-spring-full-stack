@@ -10,8 +10,6 @@ import { ClientesService } from '../../clientes.service';
 })
 export class ClientesListaComponent implements OnInit {
 
-//declarando as VAR/ATRIBUTOS
-//
 clientes: Cliente[] = [];
 clienteSelecionado: Cliente;
 mensagemSucesso: string;

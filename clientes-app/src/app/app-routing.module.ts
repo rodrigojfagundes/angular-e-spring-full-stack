@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { LayoutComponent } from './layout/layout.component';
 
 //aqui nos vamos definir as rotas... tipo QUAL PAGINA vai para
 //qual COMPONENTE... Exemplo a baixo estamos fazendo a ROTA da pag
@@ -10,7 +11,9 @@ import { LoginComponent } from './login/login.component';
 //HOMECOMPONENT)
 const routes: Routes = [
 { path: 'login', component: LoginComponent },
+{ path: '', component: LayoutComponent, children: [
 { path : 'home', component: HomeComponent}
+] }
 ];
 
 @NgModule({

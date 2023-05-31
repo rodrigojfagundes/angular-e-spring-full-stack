@@ -1,6 +1,3 @@
-//essa classe vai servir para REPRESENTAR UM REGISTRO NA TABELA de
-//SERVICOPRESTADO
-//
 import { Cliente } from "../../clientes/cliente";
 
 export class ServicoPrestadoBusca{

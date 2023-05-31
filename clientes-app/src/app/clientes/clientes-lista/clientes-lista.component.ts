@@ -19,7 +19,6 @@ mensagemErro: string;
   private service: ClientesService, 
   private router: Router) {}
 
-
   ngOnInit(): void {
     this.service
         .getClientes()
@@ -27,7 +26,7 @@ mensagemErro: string;
   }
 
     novoCadastro(){
-
+	
     this.router.navigate(['/clientes-form'])
     }
 

@@ -28,7 +28,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/servicos-prestados")
 @RequiredArgsConstructor
 public class ServicoPrestadoController {
-
+	
 	private final ClienteRepository clienteRepository;
 	private final ServicoPrestadoRepository repository;
 	private final BigDecimalConverter bigDecimalConverter;
@@ -44,7 +44,7 @@ public class ServicoPrestadoController {
 				.orElseThrow(() -> 
 				new ResponseStatusException(
 						HttpStatus.BAD_REQUEST, "Cliente inexistente."));
-
+		
 		ServicoPrestado servicoPrestado = new ServicoPrestado();
 		servicoPrestado.setDescricao(dto.getDescricao());
 		servicoPrestado.setData( data );
@@ -56,6 +56,12 @@ public class ServicoPrestadoController {
 		
 	}
 	
+	
+	//		METODO PARA PESQUISAR(BUSCAR) SERVICOSPRESTADOS
+	//
+	//metodo para fazer a PESQUISA de SERVICOSPRESTADO
+	//pesquisar atraves do NOME DO CLIENTE, e ATRAVES DA DATA
+	//
 	@GetMapping
 	public List<ServicoPrestado> pesquisar(
 			@RequestParam(value = "nome", required = false, defaultValue = "") String nome,

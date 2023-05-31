@@ -16,7 +16,6 @@ public class WebConfig {
 
 	@Bean
 	public FilterRegistrationBean<CorsFilter> corsFilterFilterRegistrationBean() {
-		
 		List<String> all = Arrays.asList("*");
 		
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
@@ -26,13 +25,9 @@ public class WebConfig {
 		corsConfiguration.setAllowCredentials(true);
 
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-
 		source.registerCorsConfiguration("/**", corsConfiguration);
-
 		CorsFilter corsFilter = new CorsFilter(source);
-
 		FilterRegistrationBean<CorsFilter> filter = new FilterRegistrationBean<>(corsFilter);
-
 		filter.setOrder(Ordered.HIGHEST_PRECEDENCE);
 		
 		

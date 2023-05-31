@@ -32,14 +32,16 @@ import io.github.rodrigojfagundes.repository.ClienteRepository;
 @RestController
 @RequestMapping("/api/clientes")
 public class ClienteController {
-	
+		
 	private final ClienteRepository repository;
-	
+
+
 	@Autowired
 	public ClienteController(ClienteRepository repository) {
 		this.repository = repository;
 	}
 	
+
 	@GetMapping
 	public List<Cliente> obterTodos(){
 		return repository.findAll();
@@ -70,13 +72,13 @@ public class ClienteController {
 	//o ID q sera passado para o ACHARPORID
 	@GetMapping("{id}")
 	public Cliente acharPorId( @PathVariable Integer id) {
+
 		return repository
 				.findById(id)
 				.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
 	}
 	
 	//metodo para DELETAR um CLIENTE
-	//
 	@DeleteMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deletar(@PathVariable Integer id) { 
@@ -92,10 +94,6 @@ public class ClienteController {
 	
 	//criando metodo para ATUALIZAR um CLIENTE
 	//
-	//a ANNOTATION @PATHVARIABLE serve para dizer q o ID vai ser um valor q vai vim
-	//na URL da requisição (ou seja a ID do CLIENTE q queremos ATUALIZAR)
-	//a ANNOTATION @REQUESTBODY vai receber um CLIENTE com os VALORES ATUALIZADOS
-	//
 	@PutMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void atualizar( @PathVariable Integer id, @RequestBody @Valid Cliente clienteAtualizado) { 
@@ -104,6 +102,7 @@ public class ClienteController {
 		.map( cliente -> {
 			cliente.setNome(clienteAtualizado.getNome());
 			cliente.setCpf(clienteAtualizado.getCpf());			
+
 			return repository.save(cliente);
 		})
 		.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );

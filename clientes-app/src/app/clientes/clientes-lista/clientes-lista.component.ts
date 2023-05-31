@@ -26,11 +26,11 @@ mensagemErro: string;
   }
 
     novoCadastro(){
-
     this.router.navigate(['/clientes-form'])
     }
 
 preparaDelecao(cliente: Cliente){
+
 this.clienteSelecionado = cliente;
 }
 

@@ -41,7 +41,6 @@ this.cliente = new Cliente();
 }
 
 voltarParaListagem(){
-
 this.router.navigate(['/clientes-lista'])
 
 }
@@ -55,7 +54,6 @@ this.service
 .subscribe(response => {
     this.success = true;
     this.errors = null;
-
 }, errorResponse => {
     this.errors = ['Erro ao atualizar o cliente.']
 })

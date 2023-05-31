@@ -9,7 +9,6 @@ import { ServicoPrestadoService } from '../../servico-prestado.service'
 })
 export class ServicoPrestadoListaComponent implements OnInit {
 
-
 nome: string;
 mes: number;
 meses: number[];
@@ -18,7 +17,6 @@ lista: ServicoPrestadoBusca[];
 message: string;
 
   constructor(
-
   private service: ServicoPrestadoService
   ) {
     this.meses = [1,2,3,4,5,6,7,8,9,10,11,12];
@@ -27,8 +25,8 @@ message: string;
   ngOnInit(): void {
   }
 
+//criando METODO q vai CONSULTAR os SERVICOPRESTADO
 consultar(){
-
     this.service.buscar(this.nome, this.mes)
 
         .subscribe(response => {

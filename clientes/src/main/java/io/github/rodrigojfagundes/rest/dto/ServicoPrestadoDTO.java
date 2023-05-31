@@ -6,10 +6,12 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @NoArgsConstructor
 public class ServicoPrestadoDTO {
 
+	
 	@NotEmpty(message = "{campo.descricao.obrigatorio}")
 	private String descricao;
 	@NotEmpty(message = "{campo.preco.obrigatorio}")

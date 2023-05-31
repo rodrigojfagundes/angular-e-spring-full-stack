@@ -23,6 +23,9 @@ import lombok.NoArgsConstructor;
 //criando a classe/entidade CLIENTE, nela vai ficar armazenada as informações
 //sobre os clientes... Tipo NOME, IDADE, CPF, etc...
 //
+//usando a ANNOTATION @ENTITY para mapear essa classe com o BANCO...
+//e assim fazer uma TABELA no banco com o nome CLIENTE, e os ATRIBUTOS serem as
+//COLUNAS
 @Entity
 @Data
 @NoArgsConstructor
@@ -39,7 +42,6 @@ public class Cliente {
 	private String nome;
 
 	@Column(nullable = false, length = 11)
-
 	@NotNull(message = "{campo.cpf.obrigatorio}")
 	@CPF(message = "{campo.cpf.invalido}")
 	private String cpf;
@@ -47,9 +49,7 @@ public class Cliente {
 	@Column(name = "data_cadastro", updatable = false)
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataCadastro;
-		
-	//metodo para os CLIENTES terem uma DATA de CADASTRO padrao...
-	//q no caso sera a data atual
+	
 	@PrePersist
 	public void prePersist() {
 		setDataCadastro(LocalDate.now());

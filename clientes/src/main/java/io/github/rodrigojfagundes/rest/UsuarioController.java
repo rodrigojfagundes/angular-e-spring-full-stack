@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class UsuarioController {
 
 	private final UsuarioRepository repository;
-	
+
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public void salvar(@RequestBody @Valid Usuario usuario) {

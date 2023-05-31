@@ -24,17 +24,11 @@ import io.github.rodrigojfagundes.rest.dto.ServicoPrestadoDTO;
 import io.github.rodrigojfagundes.util.BigDecimalConverter;
 import lombok.RequiredArgsConstructor;
 
-//classe para fazer chamada dos RECURSOS REST dos OBJETOS do tipo
-//SERVICOPRESTADO... Ou seja quando o JAVASCRIPT+ANGULAR q ta rodando no FRONT
-//requisitar os SERVICOPRESTADO, ele o JS+ANGULAR vai chamar os metodos dessa
-//classe aqui, a classe SERVICOPRESTADOCONTROLLER, e ESSA CLASSE chama
-//a classe SERVICOPRESTADOREPOSITORY, para acessar os DADOS NO BANCO
-//
 @RestController
 @RequestMapping("/api/servicos-prestados")
 @RequiredArgsConstructor
 public class ServicoPrestadoController {
-	
+
 	private final ClienteRepository clienteRepository;
 	private final ServicoPrestadoRepository repository;
 	private final BigDecimalConverter bigDecimalConverter;
@@ -50,7 +44,6 @@ public class ServicoPrestadoController {
 				.orElseThrow(() -> 
 				new ResponseStatusException(
 						HttpStatus.BAD_REQUEST, "Cliente inexistente."));
-		
 
 		ServicoPrestado servicoPrestado = new ServicoPrestado();
 		servicoPrestado.setDescricao(dto.getDescricao());
@@ -63,15 +56,6 @@ public class ServicoPrestadoController {
 		
 	}
 	
-	
-	//		METODO PARA PESQUISAR(BUSCAR) SERVICOSPRESTADOS
-	//
-	//metodo para fazer a PESQUISA de SERVICOSPRESTADO
-	//pesquisar atraves do NOME DO CLIENTE, e ATRAVES DA DATA
-	//
-	//ANNOTATION @GETMAPPING pois vamos BUSCAR/PEGAR algo
-	//metodo GET para o REST e para PEGAR/trazer no caso uma LISTA
-	//de SERVICOSPRESTADO
 	@GetMapping
 	public List<ServicoPrestado> pesquisar(
 			@RequestParam(value = "nome", required = false, defaultValue = "") String nome,

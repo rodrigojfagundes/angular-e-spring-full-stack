@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//criando a CLASSE USUARIO... Q vai receber os dados do REGISTRO/LOGIN do FRONT
+//
 @Data
 @NoArgsConstructor
 @Entity

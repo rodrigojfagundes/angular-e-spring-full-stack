@@ -30,6 +30,9 @@ import lombok.RequiredArgsConstructor;
 //classe aqui, a classe SERVICOPRESTADOCONTROLLER, e ESSA CLASSE chama
 //a classe SERVICOPRESTADOREPOSITORY, para acessar os DADOS NO BANCO
 //
+//para dizer q essa classe é um CONTROLADOR REST, vamos por o
+//@RESTCONTROLLER... e o @RequestMapping e para dizer qual a ROTA
+//do recurso... ou seja (localhost:8080/api/servicos-prestado)
 @RestController
 @RequestMapping("/api/servicos-prestados")
 @RequiredArgsConstructor
@@ -44,6 +47,7 @@ public class ServicoPrestadoController {
 	public ServicoPrestado salvar(@RequestBody @Valid ServicoPrestadoDTO dto) {
 		LocalDate data = LocalDate.parse(dto.getData(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 		Integer idCliente = dto.getIdCliente();
+
 		Cliente cliente = 
 				clienteRepository
 				.findById(idCliente)
@@ -51,11 +55,12 @@ public class ServicoPrestadoController {
 				new ResponseStatusException(
 						HttpStatus.BAD_REQUEST, "Cliente inexistente."));
 		
+		
 		ServicoPrestado servicoPrestado = new ServicoPrestado();
 		servicoPrestado.setDescricao(dto.getDescricao());
 		servicoPrestado.setData( data );
 		servicoPrestado.setCliente(cliente);
-		
+
 		servicoPrestado.setValor(bigDecimalConverter.converter(dto.getPreco()));
 		
 		return repository.save(servicoPrestado);
@@ -63,6 +68,9 @@ public class ServicoPrestadoController {
 		
 	}
 	
+	
+	//		METODO PARA PESQUISAR(BUSCAR) SERVICOSPRESTADOS
+	//
 	@GetMapping
 	public List<ServicoPrestado> pesquisar(
 			@RequestParam(value = "nome", required = false, defaultValue = "") String nome,

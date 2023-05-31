@@ -27,6 +27,8 @@ import lombok.NoArgsConstructor;
 //e assim fazer uma TABELA no banco com o nome CLIENTE, e os ATRIBUTOS serem as
 //COLUNAS
 @Entity
+//ANNOTATION @DATA ela cria os GET e SET automaticamente(invisivel) e 
+//o TOSTRING, HASHCODE EQUALS e o CONSTRUTOR sem e COM PARAMETROS (de forma invisivel)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -15,7 +15,7 @@ import io.github.rodrigojfagundes.service.UsuarioService;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
 	@Autowired
 	private UsuarioService usuarioService;
 
@@ -30,7 +30,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Bean
 	public AuthenticationManager authenticationManager() throws Exception {
 
-		return super.authenticationManager();		
+		return super.authenticationManager();
+		
 	}
 
 	@Override

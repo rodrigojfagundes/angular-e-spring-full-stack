@@ -15,7 +15,8 @@ import org.springframework.web.filter.CorsFilter;
 public class WebConfig {
 
 	@Bean
-	public FilterRegistrationBean<CorsFilter> corsFilterFilterRegistrationBean() { 
+	public FilterRegistrationBean<CorsFilter> corsFilterFilterRegistrationBean() {
+ 
 		List<String> all = Arrays.asList("*");
 		
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
@@ -28,9 +29,7 @@ public class WebConfig {
 		source.registerCorsConfiguration("/**", corsConfiguration);
 		CorsFilter corsFilter = new CorsFilter(source);
 		FilterRegistrationBean<CorsFilter> filter = new FilterRegistrationBean<>(corsFilter);
-
 		filter.setOrder(Ordered.HIGHEST_PRECEDENCE);
-		
 		
 		return filter;
 	}

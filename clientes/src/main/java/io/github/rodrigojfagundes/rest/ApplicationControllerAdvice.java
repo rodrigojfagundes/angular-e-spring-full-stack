@@ -16,7 +16,7 @@ import io.github.rodrigojfagundes.rest.exceptions.ApiErrors;
 
 @RestControllerAdvice
 public class ApplicationControllerAdvice {
-	
+
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public ApiErrors handleValidationErros(MethodArgumentNotValidException ex) {
@@ -28,12 +28,12 @@ public class ApplicationControllerAdvice {
 
 		return new ApiErrors(messages);
 	}
-
+	
 	@ExceptionHandler(ResponseStatusException.class)
 	public ResponseEntity handleResponseStatusExceptions(ResponseStatusException ex) {
 		String mensagemErro = ex.getMessage();
 		HttpStatus codigoStatus = ex.getStatus();
-		
+
 		ApiErrors apiErrors = new ApiErrors(mensagemErro);
 		
 		return new ResponseEntity(apiErrors, codigoStatus);

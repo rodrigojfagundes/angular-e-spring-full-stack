@@ -24,11 +24,17 @@ import io.github.rodrigojfagundes.rest.dto.ServicoPrestadoDTO;
 import io.github.rodrigojfagundes.util.BigDecimalConverter;
 import lombok.RequiredArgsConstructor;
 
+//classe para fazer chamada dos RECURSOS REST dos OBJETOS do tipo
+//SERVICOPRESTADO... Ou seja quando o JAVASCRIPT+ANGULAR q ta rodando no FRONT
+//requisitar os SERVICOPRESTADO, ele o JS+ANGULAR vai chamar os metodos dessa
+//classe aqui, a classe SERVICOPRESTADOCONTROLLER, e ESSA CLASSE chama
+//a classe SERVICOPRESTADOREPOSITORY, para acessar os DADOS NO BANCO
+//
 @RestController
 @RequestMapping("/api/servicos-prestados")
 @RequiredArgsConstructor
 public class ServicoPrestadoController {
-
+	
 	private final ClienteRepository clienteRepository;
 	private final ServicoPrestadoRepository repository;
 	private final BigDecimalConverter bigDecimalConverter;
@@ -44,11 +50,12 @@ public class ServicoPrestadoController {
 				.orElseThrow(() -> 
 				new ResponseStatusException(
 						HttpStatus.BAD_REQUEST, "Cliente inexistente."));
-		
+
 		ServicoPrestado servicoPrestado = new ServicoPrestado();
 		servicoPrestado.setDescricao(dto.getDescricao());
 		servicoPrestado.setData( data );
 		servicoPrestado.setCliente(cliente);
+
 		servicoPrestado.setValor(bigDecimalConverter.converter(dto.getPreco()));
 		
 		return repository.save(servicoPrestado);

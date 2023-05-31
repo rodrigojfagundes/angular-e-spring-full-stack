@@ -34,7 +34,7 @@ import io.github.rodrigojfagundes.repository.ClienteRepository;
 public class ClienteController {
 	
 	private final ClienteRepository repository;
-
+	
 	@Autowired
 	public ClienteController(ClienteRepository repository) {
 		this.repository = repository;
@@ -102,6 +102,7 @@ public class ClienteController {
 
 			return repository.save(cliente);
 		})
+
 		.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
 	}
 }

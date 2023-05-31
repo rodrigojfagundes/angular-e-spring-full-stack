@@ -27,9 +27,7 @@ message: string;
   }
 
 consultar(){
-
     this.service.buscar(this.nome, this.mes)
-
         .subscribe(response => {
         this.lista = response;
         if(this.lista.length <= 0) {

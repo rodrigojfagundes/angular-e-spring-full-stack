@@ -6,16 +6,25 @@
                 <div class="col-lg-5">
                     <div class="card shadow-lg border-0 rounded-lg mt-5">
                         <div class="card-header">
-
+                        <!--aqui vai ficar o formulario-->
                         <h3 class="text-center font-weight-light- y-4">
                             {{ cadastrando ? 'Cadastro de Novo Usuario' : 'Entrar'}}
                             </h3>
                         </div>
                         <div class="card-body">
+                        <div class="alert alert-success" *ngIf="mensagemSucesso">
+                                {{ mensagemSucesso }}
+                            </div>
+                        
                             <div class="alert alert-danger" *ngIf="loginError">
                                 Login e/ou Senha incorreto(a).
                             </div>
                             
+                            <!--chamanaod o METODO ONSUBMIT q ta no
+                            LOGIN.COMPONENT.TS, e passando
+                            os valores para as VAR/ATRIBUTOS
+                            USERNAME e PASSWORD q estao no arquivo
+                            LOGIN.COMPONENT.TS-->
                             <form #loginForm="ngForm" (submit)="onSubmit();">
                                 <div class="form-group">
                                     <label class="small mb-1">Login</label>
@@ -31,14 +40,15 @@
                                             class="form-control py-4"
                                             placeholder="Digite sua Senha" />
                                 </div>
-
                                 <div class="form-group align-items-center justify-content-between mt-4 mb-0">
 
                                     <button type="submit" class="btn btn-primary" *ngIf="!cadastrando">
                                         Enviar
                                     </button>
 
-                                <button type="button" class="btn btn-success" *ngIf="cadastrando">
+                                <button type="button" class="btn btn-success" 
+                                (click)="cadastrar()"
+                                *ngIf="cadastrando">
                                     Cadastrar
                                 </button>
 
@@ -52,8 +62,7 @@
 
                         <div class="card-footer text-center">
                             <div class="small">
-                            <!--se clicar no CADASTRE-SE sera chamado o
-                            METODO PREPARACADASTRAR q ta no LOGIN.COMPONENT.TS-->
+
                                 <a href="#" (click)="preparaCadastrar($event)">
                                     Não possui Usuário? Cadastre-se
                                 </a>

@@ -22,7 +22,6 @@ apiURL: string = environment.apiUrlBase + "/api/usuarios";
 // FRONT END (USERNAME + SENHA) e passar ele para o USUARIOCONTROLLER.JAVA 
 //q roda no BACKEND (JAVA+SPRING)
 salvar(usuario: Usuario) : Observable<any> {
-
     return this.http.post<any>(this.apiURL, usuario);
 
     }

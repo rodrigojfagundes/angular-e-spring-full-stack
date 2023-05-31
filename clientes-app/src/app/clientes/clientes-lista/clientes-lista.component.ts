@@ -15,7 +15,6 @@ clienteSelecionado: Cliente;
 mensagemSucesso: string;
 mensagemErro: string;
 
-
   constructor(
   private service: ClientesService, 
   private router: Router) {}
@@ -31,9 +30,9 @@ mensagemErro: string;
     }
 
 preparaDelecao(cliente: Cliente){
+
 this.clienteSelecionado = cliente;
 }
-
 
 deletarCliente(){
 this.service

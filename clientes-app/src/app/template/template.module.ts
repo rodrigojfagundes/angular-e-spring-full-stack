@@ -12,7 +12,6 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    //importando as ROTAS (links das paginas)
     RouterModule
   ],
   exports: [

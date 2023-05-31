@@ -1,3 +1,5 @@
+<!--aqui e a tela do os DESIGN(HTML) da PAGINA de LOGIN, e ela
+vai chamar os METODOS, VAR, etc... do arquivo LOGIN.COMPONENT.TS-->
 <div id="layoutAuthentication">
     <div id="layoutAuthentication_content">
     <main>
@@ -15,9 +17,9 @@
                         <div class="alert alert-success" *ngIf="mensagemSucesso">
                                 {{ mensagemSucesso }}
                             </div>
-                        
-                            <div class="alert alert-danger" *ngIf="loginError">
-                                Login e/ou Senha incorreto(a).
+
+                            <div class="alert alert-danger" *ngFor="let erro of errors">
+                                {{ erro }}
                             </div>
                             
                             <!--chamanaod o METODO ONSUBMIT q ta no
@@ -41,17 +43,14 @@
                                             placeholder="Digite sua Senha" />
                                 </div>
                                 <div class="form-group align-items-center justify-content-between mt-4 mb-0">
-
                                     <button type="submit" class="btn btn-primary" *ngIf="!cadastrando">
                                         Enviar
                                     </button>
-
                                 <button type="button" class="btn btn-success" 
                                 (click)="cadastrar()"
                                 *ngIf="cadastrando">
                                     Cadastrar
                                 </button>
-
                                 <button type="button" (click)="cancelaCadastro()"
                                  class="btn btn-danger ml-1" *ngIf="cadastrando">
                                     Cancelar
@@ -62,7 +61,8 @@
 
                         <div class="card-footer text-center">
                             <div class="small">
-
+                            <!--se clicar no CADASTRE-SE sera chamado o
+                            METODO PREPARACADASTRAR q ta no LOGIN.COMPONENT.TS-->
                                 <a href="#" (click)="preparaCadastrar($event)">
                                     Não possui Usuário? Cadastre-se
                                 </a>

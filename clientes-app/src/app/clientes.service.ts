@@ -1,5 +1,5 @@
 //classe de SERVICOS de CLIENTE... Ela pega as solicitacoes
-//e envia para o SPRING do JAVA(backend)
+//e envia para o JAVA(backend)
 //
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -13,6 +13,7 @@ import { environment } from '../environments/environment'
 export class ClientesService {
 
 apiURL: string = environment.apiUrlBase + '/api/clientes';
+
   constructor(private http: HttpClient) {}
 
 //criando um metodo de nome SALVAR/CADASTRAR q recebe um CLIENTE do tipo CLIENTE 
@@ -44,13 +45,12 @@ getClientes() : Observable<Cliente[]>{
 //metodo para OBTER um CLIENTE PELO O ID... 
 //
 getClienteById(id: number) : Observable<Cliente>{
+
     return this.http.get<any>(`${this.apiURL}/${id}`);
 }
 
 
 //metodo para DELETAR um CLIENTE PELO O ID... 
-//esse metodo recebe um CLIENTE do tipo CLIENTE... Q e o cliente q queremos
-//DELETAR (e passar para o JAVA+SPRING BACKEND DELETAR)
 //
 deletar(cliente: Cliente) : Observable<any>{
 

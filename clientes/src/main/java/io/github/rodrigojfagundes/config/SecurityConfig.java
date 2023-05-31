@@ -13,12 +13,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import io.github.rodrigojfagundes.service.UsuarioService;
 
+
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private UsuarioService usuarioService;
-
+	
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
@@ -46,7 +47,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-
 		return NoOpPasswordEncoder.getInstance();
 		
 	}

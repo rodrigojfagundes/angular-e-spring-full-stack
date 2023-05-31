@@ -20,7 +20,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
-
+	
 	@Value("${security.jwt.signing-key}")
 	private String signingKey;
 	
@@ -34,6 +34,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	public JwtAccessTokenConverter accessTokenConverter() {
 		JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
 		tokenConverter.setSigningKey(signingKey);
+		
 		return tokenConverter;
 	}
 	

@@ -32,14 +32,14 @@ import io.github.rodrigojfagundes.repository.ClienteRepository;
 @RestController
 @RequestMapping("/api/clientes")
 public class ClienteController {
-	
+
 	private final ClienteRepository repository;
 	
 	@Autowired
 	public ClienteController(ClienteRepository repository) {
 		this.repository = repository;
 	}
-	
+
 	@GetMapping
 	public List<Cliente> obterTodos(){
 		return repository.findAll();
@@ -56,7 +56,6 @@ public class ClienteController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente salvar(@RequestBody @Valid Cliente cliente) {
-
 		return repository.save(cliente);
 	}
 	

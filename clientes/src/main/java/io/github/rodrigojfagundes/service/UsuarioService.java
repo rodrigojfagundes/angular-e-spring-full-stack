@@ -19,7 +19,6 @@ public class UsuarioService implements UserDetailsService{
 	private UsuarioRepository repository;
 	
 	public Usuario salvar(Usuario usuario) {
-
 		boolean exists = repository.existsByUsername(usuario.getUsername());
 		if (exists) {
 			throw new UsuarioCadastradoException(usuario.getUsername());
@@ -28,7 +27,7 @@ public class UsuarioService implements UserDetailsService{
 		return repository.save(usuario);
 	}
 	
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Usuario usuario = repository.findByUsername(username)

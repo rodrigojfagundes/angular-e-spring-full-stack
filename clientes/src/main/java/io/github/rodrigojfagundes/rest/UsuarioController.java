@@ -19,16 +19,16 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/usuarios")
 @RequiredArgsConstructor
 public class UsuarioController {
-	
-	private UsuarioService service;
 
+	private final UsuarioService service;
+	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public void salvar(@RequestBody @Valid Usuario usuario) {
 		try {
-
 			service.salvar(usuario);
 		}
+
 		catch(UsuarioCadastradoException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}

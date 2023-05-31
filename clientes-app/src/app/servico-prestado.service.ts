@@ -1,3 +1,6 @@
+//CLASSE SERVICO-PRESTADO-SERVICE... Ela vai servir para RECEBER
+//o OBJ no tipo SERVICO-PRESTADO, e enviar ele para a API q fica
+//no SERVICOPRESTADOCONTROLLER.JAVA q roda no BACKEND (JAVA+SPRING)
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ServicoPrestado } from './servico-prestado/servicoPrestado';
@@ -30,6 +33,7 @@ apiURL: string = environment.apiUrlBase + "/api/servicos-prestados";
 buscar(nome: string, mes: number) : Observable<ServicoPrestadoBusca[]>{
 const httpParams = new HttpParams().set("nome", nome).set("mes", mes? mes.toString() : '');
 const url = this.apiURL + "?" + httpParams.toString();
+
     console.log(url);
     return this.http.get<any>(url);
 }

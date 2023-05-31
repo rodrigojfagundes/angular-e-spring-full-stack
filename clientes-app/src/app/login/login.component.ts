@@ -18,8 +18,8 @@ mensagemSucesso: string;
 errors: String[]; 
 
   constructor(
-  private router: Router,
 
+  private router: Router,
   private authService: AuthService
   ) { }
 
@@ -48,6 +48,10 @@ cadastrar(){
         .salvar(usuario)
         .subscribe( response =>  {
             this.mensagemSucesso = "Cadastro realizado com sucesso! Efetue o login.";      
+            this.cadastrando = false;
+            this.username = '';
+            this.password = '';
+            this.errors = [];
         }, errorResponse => {
 
             this.mensagemSucesso = null;

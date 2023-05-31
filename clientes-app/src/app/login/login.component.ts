@@ -14,21 +14,27 @@ username: string;
 password: string;
 cadastrando: boolean;
 mensagemSucesso: string;
-
 errors: String[]; 
 
   constructor(
-
   private router: Router,
   private authService: AuthService
   ) { }
 
 onSubmit(){
+    this.authService
+        .tentarLogar(this.username, this.password)
+        .subscribe(response => {
+        console.log(response)
+        this.router.navigate(['/home'])
+        }, HttpErrorResponse => {
 
-this.router.navigate(['/home'])
+        this.errors = ['Usuario e/ou senha incorreto(s).']
+        })
 }
 
 preparaCadastrar(event){
+
     event.preventDefault();
     this.cadastrando = true;
 }

@@ -21,7 +21,6 @@ errors: String[];
   private clienteService: ClientesService,
   private service: ServicoPrestadoService
   ) { 
-
   this.servico = new ServicoPrestado();
    }
 
@@ -38,7 +37,6 @@ this.service
    .subscribe( response => {
     this.success = true;
     this.errors = null;
-
     this.servico = new ServicoPrestado();
     } , errorResponse => {
     this.success = false;

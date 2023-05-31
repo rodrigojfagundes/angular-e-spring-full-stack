@@ -1,6 +1,3 @@
-//classe de SERVICOS de CLIENTE... Ela pega as solicitacoes
-//e envia para o SPRING do JAVA(backend)
-//
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cliente } from './clientes/cliente';
@@ -14,6 +11,7 @@ import { environment } from '../environments/environment'
 export class ClientesService {
 
 apiURL: string = environment.apiUrlBase + '/api/clientes';
+
   constructor(private http: HttpClient) {}
 
 //criando um metodo de nome SALVAR/CADASTRAR q recebe um CLIENTE do tipo CLIENTE 

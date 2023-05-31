@@ -15,6 +15,7 @@ apiURL: string = environment.apiUrlBase + "/api/servicos-prestados";
   constructor(private http: HttpClient) {}
 
   salvar(servicoPrestado: ServicoPrestado) : Observable<ServicoPrestado>{
+
     return this.http.post<ServicoPrestado>(this.apiURL, servicoPrestado);
   }
 

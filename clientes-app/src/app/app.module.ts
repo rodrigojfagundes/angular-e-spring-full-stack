@@ -32,7 +32,6 @@ import { LayoutComponent } from './layout/layout.component'
     ClientesModule,
     ServicoPrestadoModule
   ],
-
   providers: [
   ClientesService,
   ServicoPrestadoService

@@ -3,7 +3,6 @@
 //
 export class ServicoPrestado {
 
-//declarando VAR/ATRIBUTOS
 descricao:string;
 preco:string;
 data:string;

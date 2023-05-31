@@ -1,3 +1,5 @@
+<!--aqui e a tela do os DESIGN(HTML) da PAGINA de LOGIN, e ela
+vai chamar os METODOS, VAR, etc... do arquivo LOGIN.COMPONENT.TS-->
 <div id="layoutAuthentication">
     <div id="layoutAuthentication_content">
     <main>
@@ -15,7 +17,7 @@
                             <div class="alert alert-danger" *ngIf="loginError">
                                 Login e/ou Senha incorreto(a).
                             </div>
-
+                            
                             <form #loginForm="ngForm" (submit)="onSubmit();">
                                 <div class="form-group">
                                     <label class="small mb-1">Login</label>
@@ -31,6 +33,7 @@
                                             class="form-control py-4"
                                             placeholder="Digite sua Senha" />
                                 </div>
+
                                 <div class="form-group align-items-center justify-content-between mt-4 mb-0">
                                     <button type="submit" class="btn btn-primary" *ngIf="!cadastrando">
                                         Enviar

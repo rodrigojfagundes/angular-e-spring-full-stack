@@ -1,6 +1,7 @@
 package io.github.rodrigojfagundes.model.entity;
 
 import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.br.CPF;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -46,9 +50,6 @@ public class Cliente {
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataCadastro;
 	
-	
-	//metodo para os CLIENTES terem uma DATA de CADASTRO padrao...
-	//q no caso sera a data atual
 	@PrePersist
 	public void prePersist() {
 		setDataCadastro(LocalDate.now());

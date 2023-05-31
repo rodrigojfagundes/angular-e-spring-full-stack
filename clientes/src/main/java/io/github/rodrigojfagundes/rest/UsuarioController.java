@@ -25,6 +25,7 @@ public class UsuarioController {
 	public void salvar(@RequestBody @Valid Usuario usuario) {
 
 		repository.save(usuario);
-				
+		
+		
 	}
 }

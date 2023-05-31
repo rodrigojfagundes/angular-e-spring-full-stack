@@ -32,16 +32,14 @@ import io.github.rodrigojfagundes.repository.ClienteRepository;
 @RestController
 @RequestMapping("/api/clientes")
 public class ClienteController {
-		
-	private final ClienteRepository repository;
 
+	private final ClienteRepository repository;
 
 	@Autowired
 	public ClienteController(ClienteRepository repository) {
 		this.repository = repository;
 	}
 	
-
 	@GetMapping
 	public List<Cliente> obterTodos(){
 		return repository.findAll();
@@ -72,7 +70,6 @@ public class ClienteController {
 	//o ID q sera passado para o ACHARPORID
 	@GetMapping("{id}")
 	public Cliente acharPorId( @PathVariable Integer id) {
-
 		return repository
 				.findById(id)
 				.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
@@ -102,7 +99,7 @@ public class ClienteController {
 		.map( cliente -> {
 			cliente.setNome(clienteAtualizado.getNome());
 			cliente.setCpf(clienteAtualizado.getCpf());			
-
+			
 			return repository.save(cliente);
 		})
 		.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );

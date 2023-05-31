@@ -14,15 +14,15 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
-	
+
 	@Autowired
 	private AuthenticationManager authenticationManager;
-	
+
 	@Bean
 	public TokenStore tokenStore() {
 		return new InMemoryTokenStore();
 	}
-	
+
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
 		endpoints

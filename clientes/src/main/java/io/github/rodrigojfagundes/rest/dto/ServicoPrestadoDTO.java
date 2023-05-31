@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class ServicoPrestadoDTO {
-	
+
+
 	@NotEmpty(message = "{campo.descricao.obrigatorio}")
 	private String descricao;
 	@NotEmpty(message = "{campo.preco.obrigatorio}")

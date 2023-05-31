@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
+
  
 @Entity
 @Data
@@ -25,7 +26,7 @@ public class ServicoPrestado {
 
 	@Column(nullable = false, length = 150)
 	private String descricao;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;

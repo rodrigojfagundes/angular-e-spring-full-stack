@@ -32,14 +32,14 @@ import io.github.rodrigojfagundes.repository.ClienteRepository;
 @RestController
 @RequestMapping("/api/clientes")
 public class ClienteController {
-
+	
 	private final ClienteRepository repository;
 	
 	@Autowired
 	public ClienteController(ClienteRepository repository) {
 		this.repository = repository;
 	}
-	
+
 	@GetMapping
 	public List<Cliente> obterTodos(){
 		return repository.findAll();
@@ -76,7 +76,6 @@ public class ClienteController {
 	}
 	
 	//metodo para DELETAR um CLIENTE
-	//
 	@DeleteMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deletar(@PathVariable Integer id) { 
@@ -99,8 +98,8 @@ public class ClienteController {
 		.findById(id)
 		.map( cliente -> {
 			cliente.setNome(clienteAtualizado.getNome());
-			cliente.setCpf(clienteAtualizado.getCpf());
-			
+			cliente.setCpf(clienteAtualizado.getCpf());			
+
 			return repository.save(cliente);
 		})
 		.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );

@@ -29,15 +29,11 @@ mensagemErro: string;
     this.router.navigate(['/clientes/form'])
     }
 
+
 preparaDelecao(cliente: Cliente){
 this.clienteSelecionado = cliente;
 }
 
-
-//criando um METODO para DELETARCLIENTE... 
-//ou seja recebe o CLIENTE q queremos deletar e vai ser passado para o 
-//METODO DELETAR q ta no CLIENTES.SERVICES, e o DELETAR do CLIENTES.SERVICES
-//passar para o JAVA+SPRING DELETAR
 deletarCliente(){
 this.service
 .deletar(this.clienteSelecionado)

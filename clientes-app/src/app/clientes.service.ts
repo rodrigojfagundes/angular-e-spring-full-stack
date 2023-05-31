@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cliente } from './clientes/cliente';
@@ -11,13 +10,13 @@ import { environment } from '../environments/environment'
 export class ClientesService {
 
 apiURL: string = environment.apiUrlBase + '/api/clientes';
+
   constructor(private http: HttpClient) {}
 
 //criando um metodo de nome SALVAR/CADASTRAR q recebe um CLIENTE do tipo CLIENTE 
 //q vamos passar para o JAVA no BACKEND para SALVAR
 //
 salvar( cliente: Cliente ) : Observable<Cliente>{
-
     return this.http.post<Cliente>(`${this.apiURL}`, cliente);
 }
 
@@ -35,6 +34,7 @@ atualizar( cliente: Cliente ) : Observable<any>{
 //os CLIENTES q estao CAD no BANCO
 //
 getClientes() : Observable<Cliente[]>{
+
     return this.http.get<Cliente[]>(this.apiURL);
 }
 

@@ -30,9 +30,9 @@ apiURL: string = environment.apiUrlBase + "/api/servicos-prestados";
 //verifica QUAIS os SERVICOSPRESTADOS foram feitos com essas caracteristicas
 //
 buscar(nome: string, mes: number) : Observable<ServicoPrestadoBusca[]>{
-const httpParams = new HttpParams().set("nome", nome).set("mes", mes? mes.toString() : '');
+const httpParams = new HttpParams().set("nome", nome).set("mes", mes ? mes.toString() : '');
 const url = this.apiURL + "?" + httpParams.toString();
-    console.log(url);
+
     return this.http.get<any>(url);
 }
 }

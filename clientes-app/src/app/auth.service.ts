@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from './login/usuario';
 import { environment } from '../environments/environment';
-
 import { JwtConfig, JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
@@ -30,6 +29,19 @@ jwtHelper: JwtHelperService = new JwtHelperService();
     return null;
 }
 
+encerrarSessao(){
+localStorage.removeItem('access_token')
+}
+
+getUsuarioAutenticado(){
+    const token = this.obterToken();
+    if(token){
+       const usuario = this.jwtHelper.decodeToken(token).user_name
+        return usuario;
+    }
+    return null;
+}
+
 isAuthenticated() : boolean {
     const token = this.obterToken();
     if (token) {
@@ -39,18 +51,15 @@ isAuthenticated() : boolean {
     return false;
 }
 
-
-
 //criando o METODO SALVAR q RECEBE um USUARIO do tipo USUARIO
 //
 //vamos criar um METODO q vai servir para PEGAR um USUARIO q ta SENDO CAD no
 // FRONT END (USERNAME + SENHA) e passar ele para o USUARIOCONTROLLER.JAVA 
 //q roda no BACKEND (JAVA+SPRING)
 salvar(usuario: Usuario) : Observable<any> {
-
     return this.http.post<any>(this.apiURL, usuario);
-    }
 
+    }
 
 tentarLogar(username: string, password: string) : Observable<any>{
     const params = new HttpParams()

@@ -9,6 +9,10 @@ import { ServicoPrestadoService } from '../../servico-prestado.service'
 })
 export class ServicoPrestadoListaComponent implements OnInit {
 
+//declarando os ATRIBUTOS/VAR...
+//vao ser util para nos PESQUISARMOS um SERVICO-PRESTADO...
+//EX vamos colocar o NOME do CLIENTE e o MES... Dai vai aparecer os
+//SERVICOPRESTADO para esse CLIENTE no MES EM ESPECIFICO
 nome: string;
 mes: number;
 meses: number[];
@@ -25,6 +29,9 @@ message: string;
   }
 
 consultar(){
+//chamando o OBJ/VAR SERVICE do tipo SERVICOPRESTADOSERVICE
+//e passando para o METODO BUSCAR dele, um VALOR DE NOME E MES para BUSCAR
+//os SERVICOPRESTADO, para um determinado cliente e um determinado mes
     this.service.buscar(this.nome, this.mes)
         .subscribe(response => {
         this.lista = response;

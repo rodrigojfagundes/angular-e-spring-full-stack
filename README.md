@@ -28,7 +28,7 @@
 
 
 ## 7 - Tela de Serviços Prestados
-<img src="https://raw.githubusercontent.com/rodrigojfagundes/imagens_para_readme/main/Dougllas%20Sousa/Angular%209%20%2B%20SpringBoot%202.2%20Full%20Stack%20completo/1/7-Tela_Inicial_Servicos_Prestados.png" />
+<img src="https://raw.githubusercontent.com/rodrigojfagundes/imagens_para_readme/main/Dougllas%20Sousa/Angular%209%20%2B%20SpringBoot%202.2%20Full%20Stack%20completo/7-Tela_Inicial_Servicos_Prestados.png" />
 
 ## 8 - Tela de Cadastro de Serviço Prestado
 <img src="https://raw.githubusercontent.com/rodrigojfagundes/imagens_para_readme/main/Dougllas%20Sousa/Angular%209%20%2B%20SpringBoot%202.2%20Full%20Stack%20completo/8-Tela_Cadastro_de_Servico_Prestado.png" />
